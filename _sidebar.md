@@ -12,7 +12,7 @@
     - [Task](task.md)
     - [Decorator](decorator.md)
     - [Service](service.md)
-    - [Compound Task](compound-task.md)
+    - [Compound/SubNetwork Task](compound-task.md)
     - [If](if.md)
     - [Parallel](parallel.md)
     - [AnyOrder](anyorder.md)
