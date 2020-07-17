@@ -7,7 +7,7 @@ Services are another kind of subnode alongside [decorators](decorator.md). They 
 In this example, for as long as the character is busy getting into shooting range, every 0.15 to 0.25 seconds a piece of code will be executed.
 It checks if the enemy moved too much since the plan was created and if it did, it forces the character to start making a new plan.
 
-Custom services can be made by creating a subclass of `UHTNService_BlueprintBase` (for Blueprints) or `UHTNService` (for C++).
+> Custom services can be made by creating a subclass of `UHTNService_BlueprintBase` (for Blueprints) or `UHTNService` (for C++).
 
 ## Overridable functions
 

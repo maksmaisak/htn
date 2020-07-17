@@ -10,7 +10,7 @@ Decorators can be used for the following:
 - Modify task cost during planning
 - Running code during plan execution
 
-Custom decorators can be made by creating a subclass of `UHTNDecorator_BlueprintBase` (for Blueprints) or `UHTNDecorator` (for C++).
+> Custom decorators can be made by creating a subclass of `UHTNDecorator_BlueprintBase` (for Blueprints) or `UHTNDecorator` (for C++).
 
 ## Condition check time
 

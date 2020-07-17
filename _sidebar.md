@@ -4,7 +4,7 @@
     - [HTN planning overview](planning.md)
     - [Manipulating worldstate](manipulating-worldstate.md)
     - [Environment Query System integration](eqs.md)
-    - [Visual Logger integration](vislog-integration.md)
+    - [Visual Logger integration](vislog.md)
     - [Debugging](debugging.md)
     
 - Node reference

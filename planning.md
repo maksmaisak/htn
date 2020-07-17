@@ -27,7 +27,7 @@ In the picture above, the `Shoot Firearm` task may only be executed if there's a
 
 Suppose a planner begins making a plan with this HTN, and the character is out of shooting range. Because of this, the planner can't make plan **1**, but can make plan **2**, because it knows, at the time of planning, that after executing the MoveTo task the character will be in shooting range. The planner knows that the character will be in a different location and checks the conditions with that in mind.   
 
->The planner can consider hypothetical future states using **worldstates**
+> The planner can consider hypothetical future states using **worldstates**
 
 ## Worldstates
 
@@ -46,6 +46,7 @@ For example, the `Move To` task changes the `SelfLocation` value in the worldsta
 ## Example task
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png)
+
 This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the demo project. It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. Therefore, the preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate.
 
 For more info on generating plan steps, see the reference page of [tasks](task.md).
