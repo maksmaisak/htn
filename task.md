@@ -10,7 +10,7 @@ It encapsulates the state and behavior of this action during plan execution, as 
 When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#receivecreateplansteps) function is called. Here task can check preconditions on and apply effects to a worldstate to which the task is given access via [a set of functions](manipulating-worldstate.md). 
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png)
-If the given worldstate fits the preconditions, the task should call `SubmitPlanStep` after applying the effects. No action is needed if the preconditions don't fit. In this example the precondition is having a valid Firearm in a specific key of the worldstate, and the effect is putting that Firearm in another key of the worldstate.
+If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is having a valid Firearm in a specific key of the worldstate, and the effect is putting that Firearm in another key of the worldstate.
 
 ?> It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
 
@@ -66,7 +66,7 @@ Called when the task definitively finished executing for any reason, including t
 
 Called per frame on tasks that are in the future of the current plan (not executing yet but will be in the future).
 
-Use this to log shapes to the [visual logger](https://docs.unrealengine.com/en-US/Gameplay/Tools/VisualLogger/index.html) on the "HTNCurrentPlan" category (given as parameter) to provide a visual representation of the current plan.
+Use this to log shapes to the [visual logger](vislog.md) on the "HTNCurrentPlan" category (given as parameter) to provide a visual representation of the current plan.
 The worldstate in this context is the way it was submitted with SubmitPlanStep during planning.
 
 !> This is only called if the visual logger is recording.

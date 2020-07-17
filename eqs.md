@@ -1,7 +1,7 @@
 
 The plugin integrates with the [Environment Query System](https://docs.unrealengine.com/en-US/Engine/ArtificialIntelligence/EQS/index.html). The EQSQuery task allows the planner to run EQS queries during planning and put results into the worldstate. 
 
-![EQSQuery node in an HTN](_media/eqsquery-node.png)
+![EQSQuery node in an HTN](_media/eqsquery-node.png ':size=1200')
 
 The plugin provides a mechanism for EQSContexts to get information from the current worldstate. For example, the `HTNQuerierLocation` context provides the `SelfLocation` from the currently considered worldstate. This allows running EQS queries around locations the character might be at in the future. A character might make a plan for moving to a shooting location, shooting, and then moving to cover. In this case EQS query for finding the cover location will need to be run around where the character will be after shooting.
 

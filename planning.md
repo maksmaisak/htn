@@ -4,7 +4,7 @@ The basic building block of HTN-based AI is a **Task**. A planner arranges tasks
 
 Each task contributes a certain cost the plan, such that the planner strives to find the plan with the lowest total cost during planning. The cost of each task is determined during planning.
 
-![A simple Task Network](_media/simple_htn.png)
+![A simple Task Network](_media/simple_htn.png ':size=800')
 
 A Hirearhical Task Network is a graph of tasks from which an AIController can generate plans. Of all the possible plans that can be made from an HTN, the planner efficiently finds the plan with the least total cost. For example, the HTN in the image above can produce the following two plans:
 
@@ -35,7 +35,7 @@ A worldstate is a data structure containing various information useful during pl
 Information like character locations, available items, whether you have a gun or ammo and so on. 
 Worldstates are efficiently made from the AI's blackboard. Copies of them are modified by tasks to represent hypothetical future states, based on which conditions are checked.
 
-![Blackboard as worldstate](_media/blackboard.png)
+![Blackboard as worldstate](_media/blackboard.png ':size=800')
 
 Tasks have **preconditons** on worldstates. 
 This means that given a worldstate, it’s possible to determine whether or not a task can be executed, usually by checking decorators. The `In Shooting Range` decorator checks the distance between the `SelfLocation` and `CurrentEnemy` values in the given worldstate.
@@ -45,11 +45,11 @@ For example, the `Move To` task changes the `SelfLocation` value in the worldsta
 
 ## Example task
 
-![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png)
+![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=800')
 
 This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the demo project. It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. Therefore, the preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate.
 
-For more info on generating plan steps, see the reference page of [tasks](task.md).
+> For more info on generating plan steps, see the reference page of [tasks](task.md).
 
 ## Example planning
 
@@ -73,9 +73,9 @@ Adding `Find shooting location` succeeded, and the task put the found shooting l
     <tr><td>Find shooting location</td></tr>
 </table>
 
-The plan on top of the queue (the only one in this case) is taken out of it, and expanded upon. 
-There is only one arrow coming out the "Find shooting location" task, so only one expansion is made: by adding the `Move To` task to the end of the plan. 
+Again, the plan on top of the queue (the only one in this case) is taken out of it, and expanded upon.
 
+There is only one arrow coming out the "Find shooting location" task, so only one expansion is made: by adding the `Move To` task to the end of the plan.
 `Move To` does a pathfinding check between `SelfLocation` and `MovementTargetLocation`, which succeeds. It sets `SelfLocation` to `MovementTargetLocation` and submits a plan step with a cost determined by the expected path length.
 
 <table>
@@ -108,7 +108,7 @@ The entire planning process for this HTN can be expressed by this tree-like summ
         - Move To
             - Shoot Firearm
 
-A summary like this is logged into the [visual logger](vislog.md) at the end of every planning process.
+A summary like this is logged into the [visual logger](vislog?id=logging-the-planning-process) at the end of every planning process.
 </div>
             
 ## Plan rechecking
