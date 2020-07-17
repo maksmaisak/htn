@@ -1,4 +1,4 @@
-![Some tasks](_media/tasks.png ':size=600')
+![Some tasks](_media/tasks.png ':size=400')
 
 The basic building block of HTN-based AI is a **Task**. A planner arranges tasks into a plan that can be executed one by one. Primitive tasks, like `Move To` or `Grab Firearm`, are atomic actions the character can execute. Compound tasks like `Get in Shooting Range` in the image above are compound tasks that expand into a plan of their own.
 
@@ -35,7 +35,7 @@ A worldstate is a data structure containing various information useful during pl
 Information like character locations, available items, whether you have a gun or ammo and so on. 
 Worldstates are efficiently made from the AI's blackboard. Copies of them are modified by tasks to represent hypothetical future states, based on which conditions are checked.
 
-![Blackboard as worldstate](_media/blackboard.png ':size=800')
+![Blackboard as worldstate](_media/blackboard.png ':size=600')
 
 Tasks have **preconditons** on worldstates. 
 This means that given a worldstate, it’s possible to determine whether or not a task can be executed, usually by checking decorators. The `In Shooting Range` decorator checks the distance between the `SelfLocation` and `CurrentEnemy` values in the given worldstate.
@@ -45,11 +45,13 @@ For example, the `Move To` task changes the `SelfLocation` value in the worldsta
 
 ## Example task
 
-![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=800')
+![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
 
-This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the demo project. It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. Therefore, the preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate.
+This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the demo project. It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. 
 
-> For more info on generating plan steps, see the reference page of [tasks](task.md).
+The preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate. A `GrabFirearm` task needs to have a firearm to grab and its effect is getting a firearm to hold.
+
+> For more info on generating plan steps, see the reference page of [tasks](task?id=planning).
 
 ## Example planning
 

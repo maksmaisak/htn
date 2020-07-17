@@ -7,9 +7,10 @@ It encapsulates the state and behavior of this action during plan execution, as 
 
 ## Planning
 
-When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#receivecreateplansteps) function is called. Here task can check preconditions on and apply effects to a worldstate to which the task is given access via [a set of functions](manipulating-worldstate.md). 
+When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#receivecreateplansteps) function is called. Here task can check preconditions on and apply effects to a worldstate to which the task is given access via [a set of functions](manipulating-worldstates.md). 
 
-![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png)
+![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
+
 If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is having a valid Firearm in a specific key of the worldstate, and the effect is putting that Firearm in another key of the worldstate.
 
 ?> It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.

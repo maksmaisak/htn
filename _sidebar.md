@@ -2,7 +2,7 @@
 
     - [Quick start](quickstart.md)
     - [HTN planning overview](planning.md)
-    - [Manipulating worldstate](manipulating-worldstate.md)
+    - [Manipulating worldstates](manipulating-worldstates.md)
     - [Environment Query System integration](eqs.md)
     - [Visual Logger integration](vislog.md)
     - [Debugging](debugging.md)
