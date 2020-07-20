@@ -20,7 +20,7 @@ The plugin provides a suite of tools for creating, editing and debugging HTN-bas
 
 ## Why HTN?
 
-Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior.
+Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior or fail altogether. Conversely, planning-based AI can predict future states and thus determine how favourable any specific sequence of actions will be in advance. Using this knowledge, the HTN planning algorithm can efficiently find the best (least-cost) of all possible plans.
 
 ### A simple example
 
