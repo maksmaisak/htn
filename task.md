@@ -13,6 +13,8 @@ When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#
 
 If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is having a valid Firearm in a specific key of the worldstate, and the effect is putting that Firearm in another key of the worldstate.
 
+> All effects applied to a worldstate during planning are applied to the blackboard when the task begins executing.
+
 ?> It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
 
 ## Execution

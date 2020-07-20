@@ -43,3 +43,5 @@ This key is automatically added to every blackboard asset used for HTN planning 
 #### GetOwnersWorldState
 
 Returns a `WorldStateProxy` – an object with the same access member functions as a Blackboard, but may refer to either a worldstate or a blackboard depending on whether the node is planning or executing.
+
+!> This only correctly handles Blueprint nodes, C++ nodes receive the correct worldstate in their planning functions.
