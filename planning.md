@@ -1,6 +1,6 @@
 ![Some tasks](_media/tasks.png ':size=400')
 
-The basic building block of HTN-based AI is a **Task**. A planner arranges tasks into a plan that can be executed one by one. Primitive tasks, like `Move To` or `Grab Firearm`, are atomic actions the character can execute. Compound tasks like `Get in Shooting Range` in the image above are compound tasks that expand into a plan of their own.
+The basic building block of HTN-based AI is a **Task**. A planner arranges tasks into a plan that can be executed one by one. Primitive tasks like `Move To` or `Grab Firearm` are atomic actions the character can execute. Subnetwork tasks like `Get in Shooting Range` in the image above are compound tasks that expand into a plan of their own.
 
 Each task contributes a certain cost the plan, such that the planner strives to find the plan with the lowest total cost during planning. The cost of each task is determined during planning.
 
