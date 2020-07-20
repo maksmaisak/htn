@@ -3,9 +3,9 @@ The [Visual Logger](https://docs.unrealengine.com/en-US/Gameplay/Tools/VisualLog
 
 The plugin integrates with the visual logger to provide various information about planning and plan execution.
 
-## Visualizing the current plan
+### Visualizing the current plan
 
-![Current plan visualization](_media/vislog.png ':size=800')
+![Current plan visualization](_media/vislog.png ':size=1200')
 
 Any AIController executing an HTN plan logs the remaining part of the plan visually per frame, shown by the blue lines in the image above. From the image above you can see that the character's plan at the selected moment in time is:
 
@@ -20,13 +20,13 @@ Any AIController executing an HTN plan logs the remaining part of the plan visua
 
 ?> Custom tasks can log custom information during plan visualization by implementing the [`Receive Describe Plan Step To Visual Log`](task?id=receivedescribeplansteptovisuallog) function. An example of this is the `Shoot Firearm` task in the "SimpleTest" demo.
 
-## Logging the planning process
+### Logging the planning process
 
-![Log of a planning process](_media/planning_vislog.png ':size=800')
+![Log of a planning process](_media/planning_vislog.png ':size=1200')
 
 At the end of of the planning process, a traversal tree is logged, showing every candidate plan considered in the process, with cost and and consideration order.
 
 Each line is a plan step, accepted or rejected, as considered for sequencing after the plan step one level above it.
 This way any sequence of tasks from the top level down is a candidate plan considered by the planner. If planning succeeded, steps that are part of the final plan are prefixed with `>`.
 
-Tasks that failed to add to the plan for one reason or another are shown with the reason for failing. For instance, `[#58 Failed decorator Has Ammo] Attack practice target` means that on step 58 of planning, the planner failed to add `Attack practice target` to the plan because the character wasn't going to have enough ammo at that point in that plan.
+Tasks that failed to add to the plan for one reason or another are shown with the reason for failing. For instance, `[#36 Failed decorator Has Ammo] Attack practice target` means that on step 36 of planning, the planner failed to add `Attack practice target` to the plan because the character wasn't going to have enough ammo at that point in that plan.

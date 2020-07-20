@@ -43,7 +43,7 @@ This means that given a worldstate, it’s possible to determine whether or not 
 Tasks also have **effects** on the worldstate. So if a task is added to a candidate plan, it changes the worldstate at the end of the plan. 
 For example, the `Move To` task changes the `SelfLocation` value in the worldstate.
 
-## Example task
+### Using worldstates
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
 
@@ -52,6 +52,8 @@ This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm
 The preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate. A `GrabFirearm` task needs to have a firearm to grab and its effect is getting a firearm to hold.
 
 > For more info on generating plan steps, see the reference page of [tasks](task?id=planning).
+
+> For more info on working with worldstates, see [here](manipulating_worldstate.md).
 
 ## Example planning
 
@@ -120,4 +122,4 @@ Suppose a character finds a plan and begins executing it. At some point during p
 The character needs a way to automatically determine if the current plan is still valid and if not, abort it and make a new one. This is done via plan rechecking. The HTNComponent makes a worldstate from the current blackboard and propagates it through the remaining part of the current plan, rechecking conditions of decorators and tasks and applying the effects recorded during planning.
 
 > Tasks are rechecked with the [`ReceiveRecheckPlan`](task?id=receiverecheckplan) function.
-<br>Decorator conditions are only rechecked if they have ["Check Condition on Plan Recheck"](decorator?id=condition-check-time) enabled.
+<br>Decorator conditions are only rechecked if they have [`Check Condition on Plan Recheck`](decorator?id=condition-check-time) enabled.

@@ -7,7 +7,7 @@ The plugin provides a mechanism for EQSContexts to get information from the curr
 
 > Custom EQS contexts with access to the current worldstate can be made from Blueprints by making a subclass of `UEnvQueryContext_HTNBlueprintBase`, which provides the `GetWorldState` and `GetQuerierLocation` helper functions.
 
-## Returning multiple results
+### Returning multiple results
 
 If an EQS query produces multiple valid results, the task returns the one with the highest score by default. 
 It is possible to configure an EQSQuery task to produce multiple plan steps, one for the top N items found by the EQS query. To do this, set the `RunMode` property to `All Matching` and set the `Max Num Candidate Plans` to a value greater than zero.

@@ -1,6 +1,6 @@
 ## Hierarchical Task Networks :id=main
 
-HTN is a paradigm for making AI that plans ahead instead of making decisions on a moment-to-moment basis.
+[HTN](https://en.wikipedia.org/wiki/Hierarchical_task_network) is a paradigm for making AI that plans ahead instead of making decisions on a moment-to-moment basis.
 HTN-driven AIs can take into account the consequences of their actions and create optimal plans to be executed.
 
 ![A simple Task Network](_media/simple_htn.png ':size=1200')
@@ -20,15 +20,15 @@ The plugin provides a suite of tools for creating, editing and debugging HTN-bas
 
 ## Why HTN?
 
-Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior:
+Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior.
 
 ### A simple example
 
 ![A simple test situation](_media/simple_test_1.png ':size=1200')
 
 The red character needs to shoot the tall yellow target. 
-Before the character can shoot the target, they need to get a gun an some ammo for it, it no particular order.
-There are two guns and two ammo crates in different locations.
+Before the character can shoot the target, they need to get a gun an some ammo for it, in no particular order.
+There are two guns on the ground and two ammo crates in different locations.
 
 There are multiple choices the character needs to make. 
 Should it get a gun or ammo first? 
