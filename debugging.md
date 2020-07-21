@@ -1,5 +1,5 @@
 
-It's possible to debug plan execution in the editor similar to how debugging works for [Behavior Trees]().
+It's possible to debug plan execution in the editor similar to how debugging works for Behavior Trees.
 
 ![Visual debugging](_media/visual_debugging.png ':size=1200')
 

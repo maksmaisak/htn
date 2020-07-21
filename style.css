@@ -3,6 +3,7 @@ section.cover.has-mask
     background-image: url("/_media/bg.png");
     background-blend-mode: multiply;
     background-color: #ccc !important;
+    background-position: 15% 50% !important;
 }
 
 section.cover.has-mask .mask 

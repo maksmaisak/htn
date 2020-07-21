@@ -7,7 +7,7 @@
 - Fully Blueprintable
 
 [Example Project]()
-[Get Started](#main)
+[Get Started](README.md)
 
 <!-- background image -->
 ![](_media/bg.png)

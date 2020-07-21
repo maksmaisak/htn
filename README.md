@@ -1,11 +1,15 @@
-## Hierarchical Task Networks :id=main
+[Hierarchical Task Networks](https://en.wikipedia.org/wiki/Hierarchical_task_network) is a way to build AI that plans ahead instead of making decisions on a moment-to-moment basis.
 
-[HTN](https://en.wikipedia.org/wiki/Hierarchical_task_network) is a paradigm for making AI that plans ahead instead of making decisions on a moment-to-moment basis.
-HTN-driven AIs can take into account the consequences of their actions and create optimal plans to be executed.
+![A character with its plan visualized](_media/bg.png ':size=1200')
+
+Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior or fail altogether. 
+
+Planning-based AI can consider the consequences of their actions and model future states. 
+Compared to other planning algorithms such as Goal-oriented Action Planning, HTN planning is more efficient and grants designers a lot more of control over the planning process. 
 
 ![A simple Task Network](_media/simple_htn.png ':size=1200')
 
-## Features
+### Features
 
 The plugin provides a suite of tools for creating, editing and debugging HTN-based AI.
 
@@ -17,10 +21,6 @@ The plugin provides a suite of tools for creating, editing and debugging HTN-bas
 - Integration with the Visual Logger
 - Integration with the Environment Query System
 - Realtime debugging features
-
-## Why HTN?
-
-Traditional AI techniques have characters make decisions on a moment-to-moment basis – be it with simple if statements, state machine transitions, or behavior tree branching points. Having no foresight, this may lead to suboptimal behavior or fail altogether. Conversely, planning-based AI can predict future states and thus determine how favourable any specific sequence of actions will be in advance. Using this knowledge, the HTN planning algorithm can efficiently find the best (least-cost) of all possible plans.
 
 ### A simple example
 
@@ -62,4 +62,5 @@ This situation is implemented in the "TacticsTest" map of the example project. C
 
 ## Getting started
 
-For a general introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). For a quick setup guide, check the [Quick Start](quickstart.md) guide.
+For a general introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 
+<br>For quick setup, check the [basic usage](basic-usage.md) guide.
