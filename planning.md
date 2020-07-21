@@ -53,7 +53,7 @@ The preconditon of this task is that there must be a firearm in the `FirearmToGr
 
 > For more info on generating plan steps, see the reference page of [tasks](task?id=planning).
 
-> For more info on working with worldstates, see [here](manipulating_worldstate.md).
+> For more info on working with worldstates, see [here](manipulating-worldstates.md).
 
 ## Example planning
 
