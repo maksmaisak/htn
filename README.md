@@ -7,8 +7,6 @@ Traditional AI techniques have characters make decisions on a moment-to-moment b
 Planning-based AI can consider the consequences of their actions and model future states. 
 Compared to other planning algorithms such as Goal-oriented Action Planning, HTN planning is more efficient and grants designers a lot more of control over the planning process. 
 
-![A simple Task Network](_media/simple_htn.png ':size=1200')
-
 ### Features
 
 The plugin provides a suite of tools for creating, editing and debugging HTN-based AI.
