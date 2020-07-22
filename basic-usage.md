@@ -26,4 +26,4 @@ The [demo project]() includes two maps with HTN-based characters:
 - `SimpleTest` – a map with a character making the optimal plan to achieve a simple goal.
 - `TacticsTest` – a map with two groups of characters fighting using guns and grenades, utilizing tactical reasoning in their planning.
 
-Consider the demo project for examples of usage of all main features of the plugin.
+Consider the [demo project](https://github.com/maksmaisak/htn-example-project) for examples of usage of all main features of the plugin.

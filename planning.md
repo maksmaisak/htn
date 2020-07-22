@@ -47,7 +47,7 @@ For example, the `Move To` task changes the `SelfLocation` value in the worldsta
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
 
-This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the demo project. It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. 
+This is the implementation of the `CreatePlanSteps` function of the `GrabFirearm` task from the [example project](https://github.com/maksmaisak/htn-example-project). It only submits a plan step if there's a firearm in a blackboard key of the current worldstate. Before submitting, it sets the value of another blackboard key in the worldstate. 
 
 The preconditon of this task is that there must be a firearm in the `FirearmToGrab` key of the worldstate, and its effect is putting that firearm into the `CurrentlyHeldFirearm` key of the given worldstate. A `GrabFirearm` task needs to have a firearm to grab and its effect is getting a firearm to hold.
 

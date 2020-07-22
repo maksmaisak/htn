@@ -1,5 +1,5 @@
 
-The plugin integrates with the [Environment Query System](https://docs.unrealengine.com/en-US/Engine/ArtificialIntelligence/EQS/index.html). The EQSQuery task allows the planner to run EQS queries during planning and put results into the worldstate. 
+The plugin integrates with the [Environment Query System](https://docs.unrealengine.com/en-US/Engine/ArtificialIntelligence/EQS/index.html). The `EQSQuery` task allows the planner to run EQS queries during planning and put results into the worldstate. 
 
 ![EQSQuery node in an HTN](_media/eqsquery-node.png ':size=1200')
 

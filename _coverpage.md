@@ -6,7 +6,7 @@
 - Designer-friendly
 - Fully Blueprintable
 
-[Example Project]()
+[Example Project](https://github.com/maksmaisak/htn-example-project)
 [Get Started](README.md)
 
 <!-- background image -->

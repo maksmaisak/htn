@@ -12,10 +12,10 @@ Compared to other planning algorithms such as Goal-oriented Action Planning, HTN
 The plugin provides a suite of tools for creating, editing and debugging HTN-based AI.
 
 - Node-based HTN graph editor
+- Seamlessly using blackboard data as worldstate
 - Ability to make custom Tasks, Decorators, and Services in both C++ and Blueprints
 - Parallel planning
 - Any-order planning
-- High modularity due to decoupling of preconditions from tasks
 - Integration with the Visual Logger
 - Integration with the Environment Query System
 - Realtime debugging features
@@ -44,7 +44,12 @@ With HTN it's easy to create a character AI that efficiently finds the optimal p
 
 ![Simple Test HTN](_media/simple_test_htn.png ':size=1200')
 
-?> This example is the "SimpleTest" map of the demo project.
+This example is the "SimpleTest" map of the [example project](https://github.com/maksmaisak/htn-example-project). 
+Here it is in action:
+
+<div class="embed-responsive embed-responsive-16by9" style="max-width: 1200px;">
+    <iframe src="https://www.youtube-nocookie.com/embed/ARJzKhosmEI" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ### HTN for tactics
 
@@ -52,10 +57,12 @@ Suppose there is an FPS arena with a complex layout. There are two groups of cha
 
 There are myriad ways to go from point A to point B while moving from cover to cover. Every step of the way presents a unique choice: to go left or to go right, to run straight through or take a detour, to throw a grenade or to hunker down etc. The tactical consequences of each choice aren't obvious in the moment, which is why it's better to plan them out in advance. A planning-based AI is perfect for this kind of situation, as it finds the best (lowest cost) plan even in a highly-branching possiblity space.
 
-This situation is implemented in the "TacticsTest" map of the example project. Characters invent plans and continuously update them as the battlefield conditions change.
+The [Environment Query System integration](eqs.md) allows the planner to efficiently consider a large number of tactical locations during planning.
 
-<div class="embed-responsive embed-responsive-16by9">
-    <iframe src="https://www.youtube.com/embed/FHapYbv9vjE" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+This situation is implemented in the "TacticsTest" map of the [example project](https://github.com/maksmaisak/htn-example-project). Characters invent plans and continuously update them as the battlefield conditions change.
+
+<div class="embed-responsive embed-responsive-16by9" style="max-width: 1200px;">
+    <iframe src="https://www.youtube-nocookie.com/embed/FHapYbv9vjE" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Getting started
