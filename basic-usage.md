@@ -21,9 +21,8 @@ Whenever a plan completes or aborts, it will begin making a new plan.
 
 #### Advanced usage
 
-The [demo project]() includes two maps with HTN-based characters:
+Consider the [example project](https://github.com/maksmaisak/htn-example-project) for examples of usage of all main features of the plugin.
+The project includes two maps with HTN-based characters:
 
 - `SimpleTest` – a map with a character making the optimal plan to achieve a simple goal.
 - `TacticsTest` – a map with two groups of characters fighting using guns and grenades, utilizing tactical reasoning in their planning.
-
-Consider the [demo project](https://github.com/maksmaisak/htn-example-project) for examples of usage of all main features of the plugin.
