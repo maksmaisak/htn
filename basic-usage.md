@@ -1,5 +1,7 @@
 !> This guide assumes you're familiar with Blueprint scripting, working with Blackboards, and have a basic understanding of [HTN planning](planning.md).
 
+## Creating & running an HTN
+
 The main asset type is a Hierarchical Task Network asset, serving similar function to a Behavior Tree asset.
 You can create an HTN asset in the Content Browser like this:
 
@@ -8,7 +10,7 @@ You can create an HTN asset in the Content Browser like this:
 A Blackboard asset must be assigned to an HTN to make it usable.
 An AIController running an HTN asset will use the specified asset for its Blackboard component and the planner will use it as [worldstate](planning?id=worldstates).
 
-![Assigning a Blackboard to an HTN](_media/assign_blackboard_highlighted.png ':size=1200')
+![Assigning a Blackboard to an HTN](_media/assign_blackboard_highlighted.png ':size=800')
 
 To make an AIController use HTN planning with a specific HTN asset, call the `Run HTN` function.
 
@@ -19,7 +21,15 @@ Whenever a plan completes or aborts, it will begin making a new plan.
 
 ?> The `ForceReplan` function of `HTNComponent` can be used to start making a new plan regardless of executing an existing plan.
 
-#### Advanced usage
+## Tutorials
+
+This section contains tutorial videos, updating as they come.
+
+<div class="embed-responsive embed-responsive-16by9" style="max-width: 800px;">
+    <iframe src="https://www.youtube-nocookie.com/embed/gQ_74X530KQ" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</div>
+    
+## Example project
 
 Consider the [example project](https://github.com/maksmaisak/htn-example-project) for examples of usage of all main features of the plugin.
 The project includes two maps with HTN-based characters:

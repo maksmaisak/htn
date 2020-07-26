@@ -48,7 +48,7 @@ This example is the "SimpleTest" map of the [example project](https://github.com
 Here it is in action:
 
 <div class="embed-responsive embed-responsive-16by9" style="max-width: 1200px;">
-    <iframe src="https://www.youtube-nocookie.com/embed/ARJzKhosmEI" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/ARJzKhosmEI" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ### HTN for tactics
@@ -62,13 +62,13 @@ The [Environment Query System integration](eqs.md) allows the planner to efficie
 This situation is implemented in the "TacticsTest" map of the [example project](https://github.com/maksmaisak/htn-example-project). Characters invent plans and continuously update them as the battlefield conditions change.
 
 <div class="embed-responsive embed-responsive-16by9" style="max-width: 1200px;">
-    <iframe src="https://www.youtube-nocookie.com/embed/FHapYbv9vjE" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/FHapYbv9vjE" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Getting started
 
 For a general introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 
-<br>For quick setup, check the [basic usage](basic-usage.md) guide.
+<br>For quick setup, check out the [basic usage & tutorials](basic-usage.md) page.
 
 ### Support
 
