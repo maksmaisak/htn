@@ -3,7 +3,7 @@
 
 - Overview
 
-    - [HTN planning overview](planning.md)
+    - [HTN planning](planning.md)
     - [Manipulating worldstates](manipulating-worldstates.md)
     - [Environment Query System integration](eqs.md)
     - [Visual Logger integration](vislog.md)
