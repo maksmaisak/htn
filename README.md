@@ -67,8 +67,8 @@ This situation is implemented in the "TacticsTest" map of the [example project](
 
 ## Getting started
 
-For a general introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 
-<br>For quick setup, check out the [basic usage & tutorials](basic-usage.md) page.
+For quick setup, check out the [Tutorials](tutorials.md) page.
+<br>For a deeper introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 
 
 ### Support
 
