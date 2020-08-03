@@ -1,4 +1,4 @@
-This section contains tutorial videos. It updates when new tutorials are added.
+This section contains tutorial videos for the plugin. It updates as new tutorials are added.
 
 ## Tutorial 1 – Basic setup & Introduction
 

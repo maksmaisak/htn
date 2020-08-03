@@ -2,7 +2,7 @@ section.cover.has-mask
 {
     background-image: url("/_media/bg.png");
     background-blend-mode: multiply;
-    background-color: #ccc !important;
+    background-color: #aaa !important;
     background-position: 15% 50% !important;
 }
 
