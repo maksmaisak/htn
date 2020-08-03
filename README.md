@@ -70,6 +70,6 @@ This situation is implemented in the "TacticsTest" map of the [example project](
 For quick setup, check out the [Tutorials](tutorials.md) page.
 <br>For a deeper introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 
 
-### Support
+## Support
 
-If you have any questions, feel free to reach out to [max.maisak+support@gmail.com](mailto:max.maisak+support@gmail.com)
+If you have any questions or suggestions, feel free to reach out to [max.maisak+support@gmail.com](mailto:max.maisak+support@gmail.com)
