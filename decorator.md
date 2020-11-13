@@ -40,7 +40,10 @@ Called when testing if the underlying node can be added to the plan or executed.
 ### ReceiveModifyStepCost
 
 During planning, this can be used to modify the cost of the plan step this decorator is on.
-Return the new cost of the plan step (must be non-negative)
+Return the new cost of the plan step.
+
+!> The cost must be non-negative. 
+If the decorator is attached to a non-primitive node (like [SubNetwork](subnetwork.md) or [If](if.md)), the new cost must not be lower than the old cost.
 
 ### ReceiveOnPlanEnter
 
