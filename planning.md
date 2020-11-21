@@ -8,18 +8,8 @@ Each task contributes a certain cost the plan, such that the planner strives to 
 
 A Hirearhical Task Network is a graph of tasks from which an AIController can generate plans. Of all the possible plans that can be made from an HTN, the planner efficiently finds the plan with the least total cost. For example, the HTN in the image above can produce the following two plans:
 
-<table>
-<tr>
-    <td><b>1</b></td>
-    <td><code>Shoot Firearm</code></td>
-</tr>
-<tr>
-    <td><b>2</b></td>
-    <td><code>Find shooting location</code></td>
-    <td><code>Move To</code></td>
-    <td><code>Shoot Firearm</code></td>
-</tr>
-</table>
+- `Shoot Firearm`
+- `Find shooting location 🡒 Move To 🡒 Shoot Firearm`
 
 ?> Just like with [Behavior Trees](https://docs.unrealengine.com/en-US/Engine/ArtificialIntelligence/BehaviorTrees/BehaviorTreesOverview/index.html), the blue subnodes on the `Shoot Firearm` task are **Decorators**. Decorators are mainly used for conditions, but may also be used to modify their task nodes in other ways. For more info, see the reference page on [decorators](decorator.md). 
 
@@ -77,7 +67,7 @@ Adding `Find shooting location` succeeded, and the task put the found shooting l
 
 <table>
     <tr><td><b>Queue</b></td></tr>
-    <tr><td>Find shooting location</td></tr>
+    <tr><td><code>Find shooting location</code></td></tr>
 </table>
 
 Again, the plan on top of the queue (the only one in this case) is taken out of it, and expanded upon.
@@ -88,8 +78,7 @@ There is only one arrow coming out the "Find shooting location" task, so only on
 <table>
     <tr><td><b>Queue</b></td></tr>
     <tr>
-        <td>Find shooting location</td>
-        <td>Move To</td>
+        <td><code>Find shooting location 🡒 Move To</code></td>
     </tr>
 </table>
 
@@ -98,9 +87,7 @@ The planner follows the only arrow coming out of `Move To`, checks decorator con
 <table>
     <tr><td><b>Queue</b></td></tr>
     <tr>
-        <td>Find shooting location</td>
-        <td>Move To</td>
-        <td>Shoot Firearm</td>
+        <td><code>Find shooting location 🡒 Move To 🡒 Shoot Firearm</code></td>
     </tr>
 </table>
 
@@ -115,9 +102,27 @@ The entire planning process for this HTN can be expressed by this tree-like summ
         - Move To
             - Shoot Firearm
 
-A summary like this is logged into the [visual logger](vislog?id=logging-the-planning-process) at the end of every planning process.
+A summary similar to this is logged into the [visual logger](vislog?id=logging-the-planning-process) at the end of every planning process.
 </div>
+
+### Another example
             
+![A simple Task Network](_media/example_htn1.png ':size=800')
+
+This HTN can produce three possible plans: 
+- `Success 🡒 A` (Cost 150)
+- `Success 🡒 B` (Cost 250)
+- `Success 🡒 C` (Cost 350)
+
+The planner chooses the plan `Success 🡒 A` because it has the lowest cost of the three.
+The planning process gets logged into the [visual logger](vislog?id=logging-the-planning-process) like this:
+
+- Root
+    - [> #0 Cost: 50] Success
+        - [> #1 Cost: 150] A
+        - [#2 Cost: 250] B
+        - [#3 Cost: 350] C
+        
 ## Plan rechecking
 
 Suppose a character finds a plan and begins executing it. At some point during plan execution something changes in the blackboard that wasn't accounted for during planning and might invalidate the current plan. For example, the character is moving to a location from which they can shoot the current enemy, but that enemy moved to a different location and the shooting location decided on during planning may no longer be valid.

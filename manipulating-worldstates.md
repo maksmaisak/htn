@@ -1,13 +1,13 @@
 
-HTN nodes ([Tasks](task.md), [Decorators](decorator.md), [Services](service.md)) have access to a set of functions to manipulate [worldstates](planning?id=worldstates) during planning and execution.
-
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
+
+HTN nodes ([Tasks](task.md), [Decorators](decorator.md), [Services](service.md)) have access to a set of functions to manipulate [worldstates](planning?id=worldstates) during planning and execution.
 
 - `GetWorldStateValueAs [X]` – takes a `BlackboardKeySelector` and returns a value
 - `SetWorldStateValueAs [X]` – takes a `BlackboardKeySelector` and a value
 - `ClearWorldStateValue` – takes a `BlackboardKeySelector`
 
-> These functions read and write values of whichever worldstate is currently active. During planning they refer to the currently considered worldstate, i.e. a hypothetical future state. During plan execution they access the Blackboard of the AIController that is executing the plan containing this node.
+These functions read and write values of whichever worldstate is currently active. During planning they refer to the currently considered worldstate, i.e. a hypothetical future state. During plan execution they access the Blackboard of the AIController that is executing the plan containing this node.
 
 ### Supported types
 
