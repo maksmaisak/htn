@@ -105,23 +105,23 @@ The entire planning process for this HTN can be expressed by this tree-like summ
 A summary similar to this is logged into the [visual logger](vislog?id=logging-the-planning-process) at the end of every planning process.
 </div>
 
-### Another example
+### Example: costs
             
 ![A simple Task Network](_media/example_htn1.png ':size=800')
 
 This HTN can produce three possible plans: 
-- `Success 🡒 A` (Cost 150)
-- `Success 🡒 B` (Cost 250)
-- `Success 🡒 C` (Cost 350)
+- `A 🡒 B` (Cost 250)
+- `A 🡒 C` (Cost 150)
+- `A 🡒 D` (Cost 350)
 
-The planner chooses the plan `Success 🡒 A` because it has the lowest cost of the three.
+The planner chooses the plan `A 🡒 C` because it has the lowest cost of the three.
 The planning process gets logged into the [visual logger](vislog?id=logging-the-planning-process) like this:
 
 - Root
-    - [> #0 Cost: 50] Success
-        - [> #1 Cost: 150] A
-        - [#2 Cost: 250] B
-        - [#3 Cost: 350] C
+    - [> #0 Cost: 50] A
+        - [#1 Cost: 250] B
+        - [> #2 Cost: 150] C
+        - [#3 Cost: 350] D
         
 ## Plan rechecking
 
