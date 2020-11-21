@@ -57,9 +57,12 @@ The preconditon of this task is that there must be a firearm in the `FirearmToGr
 
 ## Example planning
 
-The planner has a priority queue of candidate plans, such that the lowest-cost plan is at the top. Most of these candidate plans are incomplete and the planner creates plan expansions from them.
+The planner has a priority queue of candidate plans, such that the lowest-cost plan is at the top. 
+Most of these candidate plans are incomplete and the planner creates plan expansions from them.
 
-Let's consider how the planner makes a plan out of the HTN in the first image, step by step. 
+![A simple Task Network](_media/simple_htn.png ':size=800')
+
+Let's consider how the planner makes a plan out of this HTN, step by step. 
 It begins with a single empty plan in the queue:
 
 <table>
