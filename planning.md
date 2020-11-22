@@ -9,7 +9,7 @@ Each task contributes a certain cost the plan, such that the planner strives to 
 A Hirearhical Task Network is a graph of tasks from which an AIController can generate plans. Of all the possible plans that can be made from an HTN, the planner efficiently finds the plan with the least total cost. For example, the HTN in the image above can produce the following two plans:
 
 - `Shoot Firearm`
-- `Find shooting location 🡒 Move To 🡒 Shoot Firearm`
+- `Find shooting location → Move To → Shoot Firearm`
 
 ?> Just like with [Behavior Trees](https://docs.unrealengine.com/en-US/Engine/ArtificialIntelligence/BehaviorTrees/BehaviorTreesOverview/index.html), the blue subnodes on the `Shoot Firearm` task are **Decorators**. Decorators are mainly used for conditions, but may also be used to modify their task nodes in other ways. For more info, see the reference page on [decorators](decorator.md). 
 
@@ -78,7 +78,7 @@ There is only one arrow coming out the "Find shooting location" task, so only on
 <table>
     <tr><td><b>Queue</b></td></tr>
     <tr>
-        <td><code>Find shooting location 🡒 Move To</code></td>
+        <td><code>Find shooting location → Move To</code></td>
     </tr>
 </table>
 
@@ -87,7 +87,7 @@ The planner follows the only arrow coming out of `Move To`, checks decorator con
 <table>
     <tr><td><b>Queue</b></td></tr>
     <tr>
-        <td><code>Find shooting location 🡒 Move To 🡒 Shoot Firearm</code></td>
+        <td><code>Find shooting location → Move To → Shoot Firearm</code></td>
     </tr>
 </table>
 
@@ -110,11 +110,11 @@ A summary similar to this is logged into the [visual logger](vislog?id=logging-t
 ![A simple Task Network](_media/example_htn1.png ':size=800')
 
 This HTN can produce three possible plans: 
-- `A 🡒 B` (Cost 250)
-- `A 🡒 C` (Cost 150)
-- `A 🡒 D` (Cost 350)
+- `A → B` (Cost 250)
+- `A → C` (Cost 150)
+- `A → D` (Cost 350)
 
-The planner chooses the plan `A 🡒 C` because it has the lowest cost of the three.
+The planner chooses the plan `A → C` because it has the lowest cost of the three.
 The planning process gets logged into the [visual logger](vislog?id=logging-the-planning-process) like this:
 
 - Root
