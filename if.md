@@ -8,3 +8,5 @@ The condition becomes false, and the whole plan gets aborted, so the character c
 
 ?> You can untick the `Can Conditions Interrupt False Branch` property to prevent the false branch from being aborted due to changing decorator conditions. 
 In this example that makes the character keep running for cover even when out of grenade range.
+
+This node creates an [execution scope](decorator?id=execution-scope) for subnodes.

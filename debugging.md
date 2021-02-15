@@ -19,5 +19,5 @@ When plan execution on the currently selected character reaches a node with a br
 
 ### Inspecting blackboard/worldstate values
 
-The Blackboard tab on the bottom right shows the current values of the Blackboard by default.
-By switching it to `Selected` mode and selecting a node that is part of the current plan, you can see what the worldstate will be at that point in the plan, as determined during planning.
+The Blackboard tab on the bottom right of the image above shows the current values of the Blackboard by default.
+By switching it to the `Selected` mode and selecting a node that is part of the current plan, you can see what the worldstate will be at that point in the plan, as determined during planning.

@@ -9,7 +9,7 @@ Topics:
 - [HTN planning](planning.md)
 - [Blackboard/Worldstate](manipulating-worldstates.md)
 - [Tasks](task.md)
-- [Compound tasks](compound-task.md)
+- [Compound tasks](subnetwork.md)
 
 <div class="embed-responsive embed-responsive-16by9" style="max-width: 800px;">
     <iframe src="https://www.youtube-nocookie.com/embed/gQ_74X530KQ" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
@@ -28,7 +28,7 @@ Topics:
 <div class="embed-responsive embed-responsive-16by9" style="max-width: 800px;">
     <iframe src="https://www.youtube-nocookie.com/embed/VXqB2iMaU0Y" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </div>
-    
+
 ## Example project
 
 Also consider the [example project](https://github.com/maksmaisak/htn-example-project) for examples of usage of all main features of the plugin.

@@ -122,7 +122,7 @@ The planning process gets logged into the [visual logger](vislog?id=logging-the-
         - [#1 Cost: 250] B
         - [> #2 Cost: 150] C
         - [#3 Cost: 350] D
-        
+
 ## Plan rechecking
 
 Suppose a character finds a plan and begins executing it. At some point during plan execution something changes in the blackboard that wasn't accounted for during planning and might invalidate the current plan. For example, the character is moving to a location from which they can shoot the current enemy, but that enemy moved to a different location and the shooting location decided on during planning may no longer be valid.

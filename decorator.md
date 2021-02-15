@@ -31,6 +31,8 @@ This means different things for different standalone nodes:
 - For a structural node – while any task within this HTN after this structural node is executing.
 - For a root node – while any task in or under the current HTN is executing.
 
+The scoping rules are the same for [Services](service.md).
+
 ## Overridable functions
 
 ### PerformConditionCheck
