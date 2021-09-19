@@ -10,8 +10,12 @@ The plugin provides a mechanism for EQSContexts to get information from the curr
 ### Returning multiple results
 
 If an EQS query produces multiple valid results, the task returns the one with the highest score by default. 
-It is possible to configure an EQSQuery task to produce multiple plan steps, one for the top N items found by the EQS query. To do this, set the `RunMode` property to `All Matching` and set the `Max Num Candidate Plans` to a value greater than zero.
+It is possible to configure an EQSQuery task to produce multiple plan steps, one for the top **N** items found by the EQS query. To do this, set the `RunMode` property to `All Matching` and set the `Max Num Candidate Plans` to **N** (or to zero, if you don't want to limit the number of alternative plans).
 
 This can be useful in cases where it's hard or impossible to predict the optimal decision early in the plan, so considering a wider range of possible plans is necessary.
 
-?> It is also possible for custom tasks to produce multiple alternate plan steps. See the relevant [node reference](task?id=planning).
+?> It is also possible for custom tasks to produce multiple alternate plan steps. See the relevant [section](task?id=planning).
+
+### Node reference
+
+You can find a description of the parameters the task is configurable with in the relevant section of the [node reference](node-reference?id=eqs-query).
