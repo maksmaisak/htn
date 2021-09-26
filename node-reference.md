@@ -4,11 +4,15 @@ This page describes the built-in nodes of the plugin.
 
 ### Success
 
-A utility task that instantly succeeds.
+A utility task that instantly succeeds during planning.
 
 Property|Description
 ---|---
 **Cost**|The cost the plan step will have.
+
+### Fail
+
+A utility task that instantly fails during planning.
 
 ### Wait
 

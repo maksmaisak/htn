@@ -19,6 +19,7 @@
     - [SubNetwork Dynamic](subnetwork-dynamic.md)
     - Structural nodes
         - [If](if.md)
+        - [Prefer](prefer.md)
         - [Parallel](parallel.md)
         - [AnyOrder](anyorder.md)
         - [Sequence](sequence.md)
