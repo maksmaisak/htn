@@ -1,39 +1,39 @@
 # Task node reference
 
-The task node represents an atomic action an AIController can execute: move to point X, shoot firearm, etc. 
+A task node represents an atomic action an AIController can execute: move to point X, shoot firearm, etc. 
 It encapsulates the state and behavior of this action during plan execution, as well as its preconditions and effects during planning.
 
 > Custom tasks can be made by creating a subclass of `UHTNTask_BlueprintBase` (for Blueprints) or `UHTNTask` (for C++).
 
 ## Planning
 
-When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#receivecreateplansteps) function is called. Here task can check preconditions on and apply effects to a worldstate to which the task is given access via [a set of functions](manipulating-worldstates.md). 
+When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#receivecreateplansteps) function is called. Here the task can check preconditions on a worldstate and and apply effects to it. The worldstate can be accessed via [a set of functions](manipulating-worldstates.md). 
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
 
-If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is having a valid Firearm in a specific key of the worldstate, and the effect is putting that Firearm in another key of the worldstate.
+If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is "having a valid Firearm in a specific key of the worldstate", and the effect is "putting that Firearm in another key of the worldstate".
 
-> All effects applied to a worldstate during planning are applied to the blackboard when the task begins executing.
+!> All effects applied to a worldstate during planning are applied to the blackboard when the task successfully **finishes** executing.
 
-?> It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
+It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
 
 ## Execution
 
 Task execution is exactly the same as with Behavior Tree Tasks:
 
 The [`ReceiveExecute`](#receiveexecute) function is called when the function begins execution. 
-If `FinishExecute` isn't called until then, [`ReceiveTick`](#receivetick) is called per tick until `FinishExecute` is called.
+If `FinishExecute` isn't called immediately, [`ReceiveTick`](#receivetick) will be called per tick until `FinishExecute` is called.
 
 Task execution can be aborted at any time for various reasons. When that happens, [`ReceiveAbort`](#receiveabort)is called and the task continues being active (in a special "aborting" state) until `FinishAbort` is called.
 If `ReceiveAbort` is not implemented, the task will be aborted immediately.
 
-Regardless of how a task finished its execution, be it via a call to `FinishExecute` due to being aborted, [`ReceiveOnFinished`](#receiveonfinished) is called in any case when task execution ends.
+Regardless of how a task finished its execution (e.g., via a call to `FinishExecute` or due to being aborted), [`ReceiveOnFinished`](#receiveonfinished) is called in any case when task execution ends.
 
 ?> You can use the `IsTaskExecuting` and `IsTaskAborting` helper functions to verify the status of the task during execution.
 
 ## Limiting recursion
 
-The `MaxRecursionLimit` property of task nodes (and standalone nodes in general) allows to create recursion limits in recursive HTNs. This number limits the number of times a node may be included in a single plan. 0 means no limit.
+The `MaxRecursionLimit` property of task nodes (and standalone nodes in general) makes it possible to create recursion limits in recursive HTNs. This number limits the number of times a node may be included in a single plan. 0 means no limit.
 
 ## Overridable functions
 
@@ -50,11 +50,11 @@ This is necessary because values in the worldstate at this point in the plan mig
 
 ### ReceiveExecute
 
-Entry point for execution, task will stay active until `FinishExecute` is called.
+Entry point for execution. The task will stay active until `FinishExecute` is called, or the task is aborted.
 
 ### ReceiveTick
 
-Tick function, called as long as the task is execution.
+Tick function, called as long as the task is executing.
 
 ### ReceiveAbort
 
