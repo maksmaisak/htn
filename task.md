@@ -54,7 +54,7 @@ Entry point for execution. The task will stay active until `FinishExecute` is ca
 
 ### ReceiveTick
 
-Tick function, called as long as the task is executing.
+Tick function, called each tick (or per the `TickInterval` property) as long as the task is executing.
 
 ### ReceiveAbort
 
@@ -65,11 +65,26 @@ Otherwise the task will complete immediately when prompted to abort.
 
 Called when the task definitively finished executing for any reason, including the AIController being destroyed.
 
+### ReceiveOnPlanExecutionStarted
+
+Called when a plan containing this node begins executing.
+Together with `ReceiveOnPlanExecutionFinished`, this can be used to lock resources or notify other characters/systems about what the AI indends to do in the plan before this node actually begins executing. (e.g. reserve a specific movement target to prevent others from moving to it).
+
+?> If called from inside this function, the [worldstate manipulation functions](manipulating-worldstates.md) will work with the worldstate with which this plan step finished planning.<br>That worldstate cannot be modified further from this function.
+
+### ReceiveOnPlanExecutionFinished
+
+Called when a plan containing this node finishes executing, for any reason.
+This is called even if the plan was aborted before this node could execute.
+
+?> If called from inside this function, the [worldstate manipulation functions](manipulating-worldstates.md) will work with the worldstate with which this plan step finished planning.<br>That worldstate cannot be modified further from this function.
+
 ### ReceiveDescribePlanStepToVisualLog
 
 Called per frame on tasks that are in the future of the current plan (not executing yet but will be in the future).
 
 Use this to log shapes to the [visual logger](vislog.md) on the "HTNCurrentPlan" category (given as parameter) to provide a visual representation of the current plan.
-The worldstate in this context is the way it was submitted with SubmitPlanStep during planning.
+
+?> If called from inside this function, the [worldstate manipulation functions](manipulating-worldstates.md) will work with the worldstate with which this plan step finished planning.<br>That worldstate cannot be modified further from this function.
 
 !> This is only called if the visual logger is recording.
