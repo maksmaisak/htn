@@ -61,12 +61,26 @@ This provides an opportunity to change worldstate values during planning, after 
 
 ### ReceiveExecutionStart
 
-Called when execution of the underlying task or subnetwork begins.
+Called when execution of the underlying node begins execution.
 
 ### ReceiveTick
 
-Tick function, called for as long as the underlying task or subnetwork is executing.
+Tick function, called each tick for as long as the underlying task or subnetwork is executing.
 
 ### ReceiveExecutionFinish
 
-Called when execution of the underlying task or subnetwork finishes.
+Called when execution of the underlying node finishes execution.
+
+### ReceiveOnPlanExecutionStarted
+
+Called when a plan containing this node begins executing.
+Together with `ReceiveOnPlanExecutionFinished`, this can be used to lock resources or notify other characters/systems about what the AI indends to do in the plan before this node actually begins executing. (e.g. reserve a specific movement target to prevent others from moving to it).
+
+?> If called from inside this function, the [worldstate manipulation functions](manipulating-worldstates.md) will work with the worldstate with which this plan step finished planning.<br>That worldstate cannot be modified further from this function.
+
+### ReceiveOnPlanExecutionFinished
+
+Called when a plan containing this node finishes executing, for any reason.
+This is called even if the plan was aborted before this node could execute.
+
+?> If called from inside this function, the [worldstate manipulation functions](manipulating-worldstates.md) will work with the worldstate with which this plan step finished planning.<br>That worldstate cannot be modified further from this function.

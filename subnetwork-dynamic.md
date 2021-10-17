@@ -7,3 +7,5 @@ The HTN can be accessed on a per-character basis using the `SetDynamicHTN`/`GetD
 
 ![HTN of the subnetwork node](_media/subnetwork_dynamic_usage.png ':size=1200')
 
+This node creates an [execution scope](decorator?id=execution-scope) for subnodes.
+
