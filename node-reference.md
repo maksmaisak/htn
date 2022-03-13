@@ -80,6 +80,28 @@ Property|Description
 **Run Mode**|<table><tbody>  <tr><td>**Single Best Item**</td><td>Pick the first item with the best score.</td></tr>  <tr><td>**Single Random Item from Best 5%**</td><td>Pick a random item with score 95% to 100% of max.</td></tr>  <tr><td>**Single Random Item from Best 25%**</td><td>Pick a random item with score 75% to 100% of max.</td></tr> <tr><td>**All Matching**</td><td>Get all items that match conditions.</td></tr> </tbody></table>
 **Max Num Candidate Plans**|If the **Run Mode** is set to **All Matching**, the node will produce multiple candidate plan steps from the top items of the query result. This variable limits how many possible branches this node can produce.<br><br>For example, if the **Run Mode** is **All Matching**, this variable is 5, and the query produces 15 items, the top 5 of them will be used to create 5 alternative plan steps.<br><br>0 means no limit.
 
+### Reset Cooldown
+
+![HTNTask_ResetCooldown](_media/HTNTask_ResetCooldown.png ':size=800')
+
+During execution, resets [Cooldown decorators](node-reference?id=cooldown).
+
+Property|Description
+---|---
+**Affected Cooldowns**|<table><tbody>  <tr><td>**Cooldowns With Gameplay Tag**</td><td>Only affects cooldowns that have a gameplay tag that is equal to or is a child of the one in the Gameplay Tag property</td></tr>  <tr><td>**Cooldowns Without Gameplay Tag**</td><td>Only affects cooldowns without a gameplay tag specified.</td></tr>  <tr><td>**All Cooldowns**</td><td>All cooldowns are affected.</td></tr> </tbody></table>
+**Gameplay Tag**|The tag to reset. Children of this tag are also affected.
+
+### Reset Do Once
+
+![HTNTask_ResetDoOnce](_media/HTNTask_ResetDoOnce.png ':size=800')
+
+During execution, resets [Do Once decorators](node-reference?id=do-once).
+
+Property|Description
+---|---
+**Affected Decorators**|<table><tbody>  <tr><td>**Do Once Decorators With Gameplay Tag**</td><td>Only affects Do Once decorators that have a gameplay tag that is equal to or is a child of the one in the Gameplay Tag property</td></tr>  <tr><td>**Do Once Decorators Without Gameplay Tag**</td><td>Only affects Do Once decorators without a gameplay tag specified.</td></tr>  <tr><td>**All Do Once Decorators**</td><td>All Do Once decorators are affected.</td></tr> </tbody></table>
+**Gameplay Tag**|The tag to reset. Children of this tag are also affected.
+
 ## Decorators
 
 ### Blackboard
@@ -101,6 +123,8 @@ A decorator node that bases its condition on whether a cooldown timer has expire
 Property|Description
 ---|---
 **Cooldown duration**|The duration in seconds for which the decorator's condition will be false after finishing.
+**Gameplay Tag**|If not None, it will be possible to influence all decorators with this gameplay tag through the [**HTNTask_ResetCooldown**](node-reference?id=reset-cooldown) task or [**HTNExtension_Cooldown**](node-reference?id=cooldown-1) extension.
+**Lock Even If Execution Aborted**|If true (default), the cooldown will lock even if execution was aborted.
 
 ### Distance check
 
@@ -113,15 +137,29 @@ Property|Description
 **Min Distance**|Minimum distance between the values of **A** and **B**.
 **Max Distance**|Maximum distance between the values of **A** and **B**.
 
+### Do Once
+
+![HTNDecorator_DoOnce](_media/HTNDecorator_DoOnce.png ':size=400')
+
+[**On execution finish**](decorator?id=receiveexecutionfinish), locks itself, so it will not pass during any subsequent planning. If a GameplayTag is specified, can be reset using that gameplay tag via the `SetDoOnceLocked` helper function of the [**HTNExtension_DoOnce extension**](node-reference?id=do-once-1) or using [**HTNTask_ResetDoOnce task**](node-reference?id=reset-do-once).
+
+Property|Description
+---|---
+**Gameplay Tag**|If not None, it will be possible to lock/unlock all DoOnce decorators with this gameplay tag using the `SetDoOnceLocked` function of the [**HTNExtension_DoOnce extension**](node-reference?id=do-once-1). If None, the decorator will still work, but the only way to unlock it would be to call `ResetAllDoOnceDecoratorsWithoutGameplayTag` or `ResetAllDoOnceDecorators`.
+**Lock Even If Execution Aborted**|If true, will lock the DoOnce even if the execution is aborted before finishing.
+**Can Abort Plan Instantly**|When the decorator fails during plan execution, it will either abort the plan instantly (if ticked) or wait until a new plan is made (if unticked).
+
 ### Focus Scope
 
 [**On execution start**](decorator?id=receiveexecutionstart), optionally sets the focus of the AIController to the value of the specified blackboard key.<br>
-[**On execution finish**](decorator?id=receiveexecutionfinish), restores the focus back to its original value.
+[**On execution finish**](decorator?id=receiveexecutionfinish), if "Restore Old Focus On Execution Finish" is enabled, restores the focus back to its original value.
 
 Property|Description
 ---|---
 **Set New Focus**|If true, will set the focus of the AIController to the value of the **Focus Target** blackboard key. Upon execution finish, the focus will be restored to the value it had on execution start regardless.
 **Focus Target**|The blackboard key on which to focus. Actor and Vector keys are supported.
+**Observe Blackboard Value**|If true, the decorator will respond to changes in the FocusTarget key.
+**Restore Old Focus On Execution Finish**|If true, OnExecutionFinish focus will be restored to the value it had before entering this focus.
 **Focus Priority**|AIControllers allow multiple focuses to be active at the same time. The Blueprint functions [SetFocus](https://docs.unrealengine.com/BlueprintAPI/AI/SetFocus/) and [SetFocalPoint](https://docs.unrealengine.com/BlueprintAPI/AI/SetFocalPoint/) use priority 2 (the highest — `Gameplay`). See `EAIFocusPriority`.
 
 ### Guard Value
@@ -183,3 +221,23 @@ Property|Description
 **Tolerance**|Changes below this value will be ignored.
 **Force Abort Plan**|If the location changes, should the current plan be aborted instantly instead of waiting until a new plan is made?
 **Force Restart Active Planning**|If the location changes, but the AI is already planning, should the planning be restarted?
+
+## Extensions
+
+### Cooldown
+
+Stores which [**Cooldown decorators**](node-reference?id=cooldown) and tags are on cooldown. Allows to query that information and (re)set cooldowns.
+Provides the following functions:
+![HTNExtension_Cooldown](_media/HTNExtension_Cooldown.png ':size=1200')
+
+### Do Once
+
+Stores which [**Do Once decorators**](node-reference?id=do-once) and tags are locked. Allows to query that information and lock/unlock Do Once decorators.
+Provides the following functions:
+![HTNExtension_DoOnce](_media/HTNExtension_DoOnce.png ':size=1200')
+
+### SubNetwork Dynamic
+
+Stores a map from GameplayTag to HTN used by [**SubNetwork Dynamic nodes**](subnetwork-dynamic.md). Allows to query and modify that map.
+Provides the following functions:
+![HTNExtension_SubNetworkDynamic](_media/HTNExtension_SubNetworkDynamic.png ':size=1200')

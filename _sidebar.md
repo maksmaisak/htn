@@ -9,6 +9,7 @@
     - [Environment Query System integration](eqs.md)
     - [Visual Logger integration](vislog.md)
     - [Debugging features](debugging.md)
+    - [HTN Extensions](htn-extensions.md)
     
 - Node reference
 
