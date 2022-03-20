@@ -26,3 +26,5 @@
         - [Sequence](sequence.md)
         - [Scope](scope.md)
     - [Node reference](node-reference.md)
+
+- [Legal](legal.md)
