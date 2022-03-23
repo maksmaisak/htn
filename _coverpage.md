@@ -1,4 +1,4 @@
-# Hierarchical Task Networks <small>1.8.0</small>
+# Hierarchical Task Networks <small>1.8.1</small>
 
 > A plugin for planning AI in Unreal Engine
 
