@@ -1,6 +1,7 @@
 - [Introduction](README.md)
 - [Tutorials](tutorials.md)
 - [Buy on the Marketplace](https://www.unrealengine.com/marketplace/en-US/product/29560d88937e4cd1a435f4b634890655)
+- [Official Discord](https://discord.gg/CQjRPnDNtc)
 
 - Overview
 
