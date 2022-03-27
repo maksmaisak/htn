@@ -7,11 +7,9 @@ This page contains release notes for updates of the plugin.
 
 ## 1.8.1
 - [HTN Extensions](htn-extensions) can now receive [Tick events](htn-extensions?id=ontick)
-- The HTN Component now describes in the Status tab of the [Visual Logger](vislog) the currently executing/aborting tasks and their decorators and services
-
-
-- Fixed tasks/decorators/services not receiving Tick events while aborting
-- Added missing HTN_API statements to specific nodes and structures (notably HTNTask_EQSQuery)
+- The HTN Component now describes in the Status tab of the [Visual Logger](vislog) the currently executing/aborting tasks and their decorators and services.
+- Fixed tasks/decorators/services not receiving Tick events while aborting.
+- Added missing HTN_API statements to specific nodes and structures (notably [HTNTask_EQSQuery](node-reference?id=eqs-query)).
 
 ## 1.8.0
 This major update introduces [HTN Extensions](htn-extensions), [Do Once decorators](node-reference?id=do-once), more features for [Cooldown decorators], and persistent tick countdowns for services on top of general improvements and bug fixes.
@@ -68,9 +66,7 @@ For example, it's now possible to have a decorator on a MoveTo task do something
 This update focuses on improving debugging of the planning process.
 - Tasks and structural nodes can now provide a description of the submitted plan step when calling SubmitPlanStep. This description will be shown in the [visual logger](vislog) next to the node name.
 - If a task doesn't produce any plan steps during plannig, it can now provide the reason for that by calling SetPlanningFailureReason inside CreatePlanSteps. This will be shown in the [visual logger](vislog).
-- The following nodes now use the above features to provide more information about planning in the visual logger: [Prefer](prefer), [AnyOrder](anyorder), [If](if), [EQSQuery](node-reference?id=eqs-query), and [MoveTo](node-reference?id=move-to). They provide a description of the submitted plan steps and/or specify a reason why no plan steps were produced. E.g. the EQSQuery task will show which item was selected.
-
-
+- The following nodes now use the above features to provide more information about planning in the visual logger: [Prefer](prefer), [AnyOrder](anyorder), [If](if), [EQSQuery](node-reference?id=eqs-query), and [MoveTo](node-reference?id=move-to). They provide a description of the submitted plan steps and/or specify a reason why no plan steps were produced. For example, the EQSQuery task will show which item was selected.
 - The cost of [Wait](node-reference?id=wait) and [EQSQuery](node-reference?id=eqs-query) is now configurable (was 100 before).
 - Fixed compilation warnings in UE5 Early Access (if you use `ue5-main` instead, some warnings are still possible) .
 
