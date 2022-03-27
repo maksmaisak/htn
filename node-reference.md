@@ -48,7 +48,18 @@ Property|Description
 
 ### Set Value
 
-During planning, sets a specified value to a specified worldstate key.
+During planning, sets a specified value to a specified worldstate key. Supports all default key types:
+- Bool
+- Int
+- Float
+- Enum
+- NativeEnum
+- String
+- Name
+- Vector
+- Rotator
+- Object
+- Class 
 
 Property|Description
 ---|---

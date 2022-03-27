@@ -80,6 +80,8 @@ This situation is implemented in the "TacticsTest" map of the [example project](
 
 ## Getting started
 
+The plugin is available on the [Unreal Marketplace](https://www.unrealengine.com/marketplace/en-US/product/29560d88937e4cd1a435f4b634890655).
+
 For quick setup, check out the [Tutorials](tutorials.md) page.
 
 For a deeper introduction to HTN planning in the plugin, check out [HTN planning overview](planning.md). 

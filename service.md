@@ -13,7 +13,7 @@ It checks if the enemy moved too much since the service became active. If it did
 
 ## Persistent tick countdown
 
-If the `Use Persistent Tick Countdown` option is enabled, the service will keep track of the countdown to the next [Tick](service?id=receivetick) in a way that persists between different plans. For example, if the service has a 5 second interval, but the plan was aborted after 3 seconds, this service will tick 2 seconds after the beginning of the next plan.
+If the `Use Persistent Tick Countdown` option is enabled, the service will keep track of the countdown to the next [Tick](service?id=receivetick) in a way that persists between different plans. For example, if the service has a 5-second interval, but the plan was aborted after 3 seconds, this service will tick 2 seconds after the beginning of the next plan.
 
 If this option is not enabled (default), the tick countdown is reset every time a new plan begins executing, causing the service to tick every time that happens.
 

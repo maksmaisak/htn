@@ -1,6 +1,7 @@
 - [Introduction](README.md)
 - [Tutorials](tutorials.md)
-- [Buy on the Marketplace](https://www.unrealengine.com/marketplace/en-US/product/29560d88937e4cd1a435f4b634890655)
+- [Changelog](changelog.md)
+- [Buy on the Unreal Marketplace](https://www.unrealengine.com/marketplace/product/29560d88937e4cd1a435f4b634890655)
 - [Official Discord](https://discord.gg/CQjRPnDNtc)
 
 - Overview
@@ -10,9 +11,8 @@
     - [Environment Query System integration](eqs.md)
     - [Visual Logger integration](vislog.md)
     - [Debugging features](debugging.md)
-    - [HTN Extensions](htn-extensions.md)
     
-- Node reference
+- Reference
 
     - [Task](task.md)
     - [Decorator](decorator.md)
@@ -22,10 +22,12 @@
     - Structural nodes
         - [If](if.md)
         - [Prefer](prefer.md)
+        - [Optional](optional.md)
         - [Parallel](parallel.md)
         - [AnyOrder](anyorder.md)
         - [Sequence](sequence.md)
         - [Scope](scope.md)
+    - [HTN Extensions](htn-extensions.md)
     - [Node reference](node-reference.md)
 
 - [Legal](legal.md)
