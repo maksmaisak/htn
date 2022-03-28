@@ -12,7 +12,7 @@ This page contains release notes for updates of the plugin.
 - Added missing HTN_API statements to specific nodes and structures (notably [HTNTask_EQSQuery](node-reference?id=eqs-query)).
 
 ## 1.8.0
-This major update introduces [HTN Extensions](htn-extensions), [Do Once decorators](node-reference?id=do-once), more features for [Cooldown decorators], and persistent tick countdowns for services on top of general improvements and bug fixes.
+This major update introduces [HTN Extensions](htn-extensions), [Do Once decorators](node-reference?id=do-once), more features for [Cooldown decorators](node-reference?id=cooldown), and [persistent tick countdowns for services](service?id=persistent-tick-countdown) on top of general improvements and bug fixes.
 
 ### Additions
 - [HTN Extensions](htn-extensions)
