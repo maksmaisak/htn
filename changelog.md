@@ -1,5 +1,15 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.3
+
+- [Plan rechecking](planning?id=plan-rechecking) no longer happens for plans that are being aborted.
+- Fixed crash when calling [ForceReplan](htn-component?id=forcereplan) from inside StopHTN.
+- Fixed crash when the primary branch of a [Parallel node](parallel) finishes the plan.
+- Fixed subnodes not receiving [ExecutionFinish](decorator?id=receiveexecutionfinish) when the following nodes in the plan are only structural nodes without any tasks.
+- Fixed [Parallel](parallel) not passing through immediately if the top branch is empty.
+- Fixed subnodes on or above [Parallel nodes](parallel) receiving a duplicate [Tick event](decorator?id=receivetick) on the frame the top branch finishes execution.
+- Fixed [DoOnce decorators](node-reference?id=do-once) not aborting immediately if they have ["check condition on tick"](decorator?id=condition-check-time) enabled and on [ExecutionStart](decorator?id=receiveexecutionstart) the condition is false.
+
 ## 1.8.2
 - The plugin now compiles for UE5 Preview 2. Note that this means it no longer compiles for UE5 Early Access!
 - [If](if) and [Scope](scope) nodes now have a name that includes the names of their decorators. This makes the [Visual Logger](vislog) output of the planning process more informative.
@@ -38,7 +48,7 @@ This major update introduces [HTN Extensions](htn-extensions), [Do Once decorato
     - Active [cooldowns](node-reference?id=cooldown) 
     - Active [do once decorators and tags](node-reference?id=do-once)
 - The [FocusScope decorator](node-reference?id=focus-scope) can now be configured to respond to changes in the `FocusTarget` Blackboard key
-- The [FocusScope decorator](node-reference?id=focus-scope) can now be configured to not restore the old focus on execution finish
+- The [FocusScope decorator](node-reference?id=focus-scope) can now be configured to not restore the old focus on [OnExecutionFinish](decorator?id=receiveexecutionfinish)
 - The maximum plan length (100 steps by default) is now configurable on the HTNComponent
 
 ### Bug fixes
