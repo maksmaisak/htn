@@ -5,6 +5,6 @@ Everything after this node is optional. This means that The planner will try to 
 
 Using this node is equivalent to having a [Prefer](prefer) node that only uses the top branch.
 
-![The Optional node](_media/optional.PNG ':size=800')
+![The Optional node](_media/optional.png ':size=800')
 
 This node creates an [execution scope](decorator?id=execution-scope) for subnodes.

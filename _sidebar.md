@@ -14,6 +14,9 @@
     
 - Reference
 
+    - [Node reference](node-reference.md)
+    - [HTN Component](htn-component.md)
+    - [HTN Extensions](htn-extensions.md)
     - [Task](task.md)
     - [Decorator](decorator.md)
     - [Service](service.md)
@@ -27,7 +30,5 @@
         - [AnyOrder](anyorder.md)
         - [Sequence](sequence.md)
         - [Scope](scope.md)
-    - [HTN Extensions](htn-extensions.md)
-    - [Node reference](node-reference.md)
 
 - [Legal](legal.md)
