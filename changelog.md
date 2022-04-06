@@ -1,5 +1,13 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.4
+
+- The plugin now supports Unreal Engine 5.
+- Fixed crash when calling FinishLatentTask from inside `UHTNTask::AbortTask`. Now logs an error in the [Visual Logger](vislog) and ignores the illegal call.
+- Fixed [HTNDecorator_Blackboard](node-reference?id=blackboard) not aborting immediately if they have ["check condition on tick"](decorator?id=condition-check-time) enabled and on [ExecutionStart](decorator?id=receiveexecutionstart) the condition is false.
+- When calling `FinishExecute` when aborting or `FinishAbort` when not aborting from a Blueprint [task](task), a descriptive error is now logged in the [Visual Logger](vislog). 
+- In the [Visual Logger](vislog), [plan recheck](planning?id=plan-rechecking) failure is now logged as Log instead of Error.
+
 ## 1.8.3
 
 - [Plan rechecking](planning?id=plan-rechecking) no longer happens for plans that are being aborted.
