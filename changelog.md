@@ -8,6 +8,8 @@ This page contains release notes for updates of the plugin.
 - When calling `FinishExecute` when aborting or `FinishAbort` when not aborting from a Blueprint [task](task), a descriptive error is now logged in the [Visual Logger](vislog). 
 - In the [Visual Logger](vislog), [plan recheck](planning?id=plan-rechecking) failure is now logged as Log instead of Error.
 
+!> Note to UE4.25 users: Since the release of Unreal Engine 5.0, the Marketplace no longer distributes updates to users of 4.25 and below. This update still works on 4.25, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_4.2x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine. 
+
 ## 1.8.3
 
 - [Plan rechecking](planning?id=plan-rechecking) no longer happens for plans that are being aborted.
