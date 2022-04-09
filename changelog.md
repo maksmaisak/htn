@@ -1,14 +1,19 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.5
+
+- [SubNetworkDynamic nodes](subnetwork-dynamic) can now be configured to take the HTN from a blackboard/worldstate key during planning.
+- Added parameters to the [SetDynamicHTN](subnetwork-dynamic) function: bForceReplanIfChangedNodesInCurrentPlan, bForceReplanIfChangedDuringPlanning. These used to be always true, now they're configurable parameters. 
+
 ## 1.8.4
 
-- The plugin now supports Unreal Engine 5.
+- **The plugin now supports Unreal Engine 5.**
 - Fixed crash when calling FinishLatentTask from inside `UHTNTask::AbortTask`. Now logs an error in the [Visual Logger](vislog) and ignores the illegal call.
 - Fixed [HTNDecorator_Blackboard](node-reference?id=blackboard) not aborting immediately if they have ["check condition on tick"](decorator?id=condition-check-time) enabled and on [ExecutionStart](decorator?id=receiveexecutionstart) the condition is false.
 - When calling `FinishExecute` when aborting or `FinishAbort` when not aborting from a Blueprint [task](task), a descriptive error is now logged in the [Visual Logger](vislog). 
 - In the [Visual Logger](vislog), [plan recheck](planning?id=plan-rechecking) failure is now logged as Log instead of Error.
 
-!> Note to UE4.25 users: Since the release of Unreal Engine 5.0, the Marketplace no longer distributes updates to users of 4.25 and below. This update still works on 4.25, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_4.2x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine. 
+!> Note to UE4.25 users: Since the release of Unreal Engine 5.0, the Marketplace no longer distributes updates to users of 4.25 and below. This update still works on 4.25, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_4.2x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
 
 ## 1.8.3
 

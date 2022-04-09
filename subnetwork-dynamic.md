@@ -1,4 +1,4 @@
-The SubNetwork Dynamic node is similar to the [SubNetwork node](subnetwork.md), but its HTN can be changed at runtime using gameplay tags.
+The SubNetwork Dynamic node is similar to the [SubNetwork node](subnetwork.md), but its HTN can be changed dynamically using gameplay tags, or be taken from a [worldstate](planning?id=worldstates) key during planning.
 This node is the HTN version of the [RunBehaviorDynamic](https://docs.unrealengine.com/en-US/InteractiveExperiences/ArtificialIntelligence/BehaviorTrees/BehaviorTreeNodeReference/BehaviorTreeNodeReferenceTasks/index.html#runbehaviordynamic) node from Behavior Trees.
 
 ![Subnetwork node example](_media/subnetwork_dynamic.png ':size=1200')
