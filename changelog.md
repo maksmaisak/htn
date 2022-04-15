@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.6
+
+- Fixed warnings for [SubNetworkDynamic](subnetwork-dynamic) when HTNFromWorldStateKey is None.
+- Fixed subnodes sometimes not getting [ExecutionFinish](decorator?id=receiveexecutionfinish) when aborting the plan after a replan.
+- Fixed FinishLatentTask being erroneously ignored if one task triggers the finish of the same task on another character.
+
 ## 1.8.5
 
 - [SubNetworkDynamic nodes](subnetwork-dynamic) can now be configured to take the HTN from a blackboard/worldstate key during planning.
