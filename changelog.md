@@ -1,5 +1,10 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.7
+
+- Fixed wrong tooltip on the Root node in the HTN editor.
+- Fixed showing internal node name in the Details tab in the HTN editor on UE5.
+
 ## 1.8.6
 
 - Fixed warnings for [SubNetworkDynamic](subnetwork-dynamic) when HTNFromWorldStateKey is None.
