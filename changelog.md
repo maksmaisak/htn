@@ -1,5 +1,10 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.8
+
+- It is now possible to add comments to nodes in the HTN editor.
+- The [example project](https://github.com/maksmaisak/htn-example-project) now supports Unreal Engine 5 and makes use of the [Prefer](prefer) and [Optional](optional) nodes.
+
 ## 1.8.7
 
 - Fixed wrong tooltip on the Root node in the HTN editor.
