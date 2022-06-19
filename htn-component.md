@@ -46,3 +46,17 @@ Parameter|Description
 **Force Abort Plan**|If true, it will abort the current plan before starting a new planning process. If false, it will start making a new plan and only abort the current one once that’s done.
 **Force Restart Active Planning**|If true and it’s already in the middle of planning, it will restart that process and start planning from scratch.
 **Force Defer to Next Frame**|If true, it will only abort the current plan and/or start new planning on the next frame.
+
+## NotifyEventBasedDecoratorCondition
+
+![ForceReplan](_media/notify_event_based_decorator_condition.png ':size=400')
+
+To be called by decorators that report changes in their condition in an event-based way instead of on tick (e.g., the [Blackboard decorator](node-reference?id=blackboard)). 
+
+Parameter|Description
+---|---
+**Decorator**|The decorator calling this. Decorators should pass a reference to Self here.
+**Raw Condition Value**|The updated raw (without any inversion applied to it) condition value.
+**Can Abort Plan Instantly**|If true, and this notify triggers a replan, it will be done instantly, like calling [ForceReplan](htn-component?id=forcereplan) with **Force Abort Plan** enabled.
+
+The function returns true if this resulted in a replan.

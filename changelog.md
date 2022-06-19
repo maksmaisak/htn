@@ -1,5 +1,13 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.9
+
+- Fixed [Parallel](parallel) nodes finishing early if their primary branch contains a [Sequence](sequence) or [AnyOrder](anyorder) node.
+- More consistent condition checking of [If](if) nodes with multiple decorators. Unexpected aborts of the false branch no longer happen. For the false branch to be aborted during execution checks, all decorators on the If node must have ["Check Condition On Tick"](decorator?id=condition-check-time) enabled. This is because all decorators' conditions must be true to switch the If from false to true.
+- It is now possible to make decorators only check on the first tick of execution, instead of every tick. To do this, enable ["Check Condition On Tick Only Once"](decorator?id=condition-check-time) alongside ["Check Condition On Tick"](decorator?id=condition-check-time). This is useful for nodes that check their condition during execution via events instead of per tick, such as the [Blackboard decorator](node-reference?id=blackboard).
+- It is now possible to specify a random deviation to the time of a [Cooldown decorator](node-reference?id=cooldown).
+- By default, decorators will no longer have ["Check Condition On Plan Recheck"](decorator?id=condition-check-time) enabled, and the tasks [Success](node-reference?id=success), [Wait](node-reference?id=wait), [EQSQuery](node-reference?id=eqs-query) have cost 0 instead of 100. Existing nodes are not affected by this change.
+
 ## 1.8.8
 
 - It is now possible to add comments to nodes in the HTN editor.

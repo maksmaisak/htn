@@ -16,10 +16,12 @@ Decorators can be used for the following:
 
 Conditions can be configured to be checked at any of these moments:
 
-- On plan enter – when the planner tries to add the task to a plan, before calling `CreatePlanSteps`
-- On plan exit – when the planner tries to add the task to a plan, after calling `CreatePlanSteps`
-- On plan recheck – when the planner rechecks a current plan for validity
-- On tick – on tick while the decorator is active
+Property|Description
+---|---
+**Check Condition on Plan Enter**|During planning, when entering the scope of the decorator.
+**Check Condition on Plan Exit**|During planning, when exiting the scope of the decorator. 
+**Check Condition on Plan Recheck**|During plan execution, when the the future portion of the current plan is [rechecked](planning?id=plan-rechecking). If this is enabled, the condition is evaluated every tick for every future plan step in which this decorator is active.
+**Check Condition on Tick**|During plan execution, when the planner rechecks a current plan for validity. this is called for every future step of the current plan, in which this decorator is active.<br><br>If **"Check Condition on Tick Only Once"** is enabled (only relevant when "Check Condition on Tick" is active), during execution the tick condition will only be checked once (when entering the decorator's scope during execution). The resulting value is cached and reused for all future ticks of this decorator in this plan. This is useful for decorators that report changes in their conditions in an event-based way (by calling [NotifyEventBasedDecoratorCondition on the HTNComponent](htn-component?id=notifyeventbaseddecoratorcondition)) instead of on tick, such as the [Blackboard decorator](node-reference?id=blackboard).
 
 ## Execution scope
 
