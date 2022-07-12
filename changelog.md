@@ -1,5 +1,14 @@
 This page contains release notes for updates of the plugin.
 
+## 1.8.10
+
+- Fixed crash caused by calling ForceAbort inside a call to AbortTask.
+- Fixed crash when calling Unpossess on the AIController or DestroyActor on the Pawn inside a call to AbortTask.
+- Fixed a rare crash when exiting a Play-in-Editor session caused by decorators in an HTN asset retaining a GC reference to an HTNComponent from the PIE session.
+- In the [Visual Logger's](vislog) "Status" tab, when showing the currently active subnodes, their source HTN assets are now correctly displayed instead of the top-level HTN being executed.
+- If a [task](task) calls FinishTask or AbortTask after already finishing, the call will be ignored and a warning will be logged in the [Visual Logger](vislog) and the Output Log
+- Scoping rules for subnodes are handled in a more robust way now, fixing a few very rare corner cases where OnExecutionStart/Tick/OnExecutionFinish on [decorators](decorator) or [services](service) could be called twice or not at all.
+
 ## 1.8.9
 
 - Fixed [Parallel](parallel) nodes finishing early if their primary branch contains a [Sequence](sequence) or [AnyOrder](anyorder) node.
