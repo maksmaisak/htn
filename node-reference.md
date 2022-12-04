@@ -14,6 +14,11 @@ Property|Description
 
 A utility task that instantly fails during planning.
 
+Property|Description
+---|---
+**Fail During Execution**|If true, will fail during execution, otherwise will fail during planning.
+**Failure Message**|Debug reason for failure that will be logged to the [Visual Logger](vislog.md).
+
 ### Wait
 
 A task that waits for a configurable amount of time.
@@ -113,6 +118,12 @@ Property|Description
 **Affected Decorators**|<table><tbody>  <tr><td>**Do Once Decorators With Gameplay Tag**</td><td>Only affects Do Once decorators that have a gameplay tag that is equal to or is a child of the one in the Gameplay Tag property</td></tr>  <tr><td>**Do Once Decorators Without Gameplay Tag**</td><td>Only affects Do Once decorators without a gameplay tag specified.</td></tr>  <tr><td>**All Do Once Decorators**</td><td>All Do Once decorators are affected.</td></tr> </tbody></table>
 **Gameplay Tag**|The tag to reset. Children of this tag are also affected.
 
+### Replan
+
+During execution, calls [**Replan**](task?id=replan). 
+
+All [replan parameters](replanning?id=replan-parameters) are configurable on the task.
+
 ## Decorators
 
 ### Blackboard
@@ -140,14 +151,16 @@ Property|Description
 
 ### Distance check
 
+![HTNDecorator_DistanceCheck](_media/HTNDecorator_DistanceCheck.png ':size=1200')
+
 Checks if the distance between two worldstate keys is within a certain numeric range.
 
 Property|Description
 ---|---
-**A**|First Blackboard key. Actor or Vector.
-**B**|Second Blackboard key. Actor or Vector.
-**Min Distance**|Minimum distance between the values of **A** and **B**.
-**Max Distance**|Maximum distance between the values of **A** and **B**.
+**A**|The [HTNLocationProvider](location-provider.md) for the first location.
+**B**|The [HTNLocationProvider](location-provider.md) for the second location.
+**Min Distance**|Minimum distance between the locations provided by **A** and **B**.
+**Max Distance**|Maximum distance between the locations provided by **A** and **B**.
 
 ### Do Once
 
@@ -225,14 +238,12 @@ Property|Description
 
 ### Replan If Location Changes
 
-If the location of the specified blackboard key changes too much from what it was [**on execution start**](service?id=receiveexecutionstart), forces a replan.
+If the location of the specified blackboard key changes too much from what it was [**on execution start**](service?id=receiveexecutionstart), calls [**Replan**](service?id=replan) with the parameters in the Replan category of the node's settings.
 
 Property|Description
 ---|---
 **Blackboard Key**|The blackboard key with the location to track. Can be an Actor or a Vector.
 **Tolerance**|Changes below this value will be ignored.
-**Force Abort Plan**|If the location changes, should the current plan be aborted instantly instead of waiting until a new plan is made?
-**Force Restart Active Planning**|If the location changes, but the AI is already planning, should the planning be restarted?
 
 ## Extensions
 

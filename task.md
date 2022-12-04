@@ -35,6 +35,22 @@ Regardless of how a task finished its execution (e.g., via a call to `FinishExec
 
 The `MaxRecursionLimit` property of task nodes (and standalone nodes in general) makes it possible to create recursion limits in recursive HTNs. This number limits the number of times a node may be included in a single plan. 0 means no limit.
 
+## Functions
+
+### FinishExecute
+
+To be called at the end of task execution after receiving a call to [ReceiveExecute](task?id=receiveexecute).
+
+### FinishAbort
+
+To be called at the end of task execution after receiving a call to [ReceiveAbort](task?id=receiveabort).
+
+### Replan
+
+![Replan HTN Component](_media/replan_task.png ':size=400')
+
+Forces the HTNComponent to start making a new plan to replace the current one. See the [Replanning](replanning.md) page for more details. 
+
 ## Overridable functions
 
 ### ReceiveCreatePlanSteps
@@ -50,7 +66,7 @@ This is necessary because values in the worldstate at this point in the plan mig
 
 ### ReceiveExecute
 
-Entry point for execution. The task will stay active until `FinishExecute` is called, or the task is aborted.
+Entry point for execution. The task will stay active until [FinishExecute](task?id=finishexecute) is called, or the task is aborted.
 
 ### ReceiveTick
 
@@ -58,7 +74,7 @@ Tick function, called each tick (or per the `TickInterval` property) as long as 
 
 ### ReceiveAbort
 
-If overriden, task will stay active until `FinishAbort` is called.
+If overriden, task will stay active until [FinishAbort](task?id=finishabort) is called.
 Otherwise the task will complete immediately when prompted to abort.
 
 ### ReceiveOnFinished

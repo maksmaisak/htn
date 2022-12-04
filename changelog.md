@@ -1,5 +1,62 @@
 This page contains release notes for updates of the plugin.
 
+## 1.9.0
+
+This major update introduces [SubPlan tasks](subplan.md), [Location Providers](location-provider.md), as well as many bug fixes and improvements.
+
+!> This update contains breaking changes for C++ projects and some function deprecations for Blueprint projects, make sure your project is backed up before updating.<br>The HTNDecorator_BlackboardBase::OnBlackboardKeyValueChange() function now also passes the NodeMemory pointer.
+<br>Some existing Blueprint code (e.g., calls to ForceReplan functions) will get deprecation warnings but will still work as before. 
+
+### Additions
+
+- [SubPlan task](subplan.md) is a task that encapsulates an independent planning & execution process. SubPlan allow for easily implementing the following use cases and more:
+    - Having a character move while shooting, such that the shooting part can get replanned without interrupting the movement.
+    - Making a high-level plan and planning the individual parts as we get to them.
+    - Making a long plan with sections, such that if we fail in one section, it will only replan from the beginning of that section without restarting from the very beginning.
+    - More examples on the [documentation page on subplans](subplan.md).
+- [DistanceCheck](node-reference?id=distance-check) now uses [HTNLocationProvider](location-provider.md) instead of BlackboardKeySelector to get the locations to measure the distance between. Existing usages of this decorator are automatically fixed up for the new version. HTNLocationProvider is a struct that allows for getting a location flexibly from a blackboard/worldstate key. For example, it allows for getting the location of the head or the feet of the actor in the key, and allows for providing a custom location getter. This struct can be used by custom nodes (including Blueprint ones) to read locations from the worldstate or elsewhere, as an alternative to BlackboardKeySelector.
+
+### Bug fixes
+
+- Fixed RunHTN creating a new HTNComponent if the existing one wasn't assigned as the BrainComponent to the AIController.
+- Fixed subnodes not receiving OnExecutionFinish events if a task could not start execution because one of it's decorators' condition failed during execution.
+- Fixed GuardValue decorator not restoring the value on plan abort in the above case.
+- Fixed the looping secondary branch of a Parallel node only doing one loop if it finished execution instantly.
+- Fixed worldstate changes applied at the end of task execution not triggering conditions of Blackboard Decorators.
+- Fixed Blueprint Decorators and Services not having their latent actions (e.g., Delay nodes etc.) aborted if they don't implement ReceiveOnExecutionFinished
+- Fixed decorators on the root node of an HTN not having their blackboard key selectors resolved during planning. This was causing all worldstate manipulation during planning to fail.
+- Fixed crash caused by custom C++ node defining a node memory struct that inherits from the memory struct of a parent class.
+- Fixed instanced Blackboard keys (such as String) not copying from Worldstate to Blackboard properly.
+- Fixed subnodes on the root node of an HTN being given the wrong plan step ID during initialization.
+- Fixed GuardValue decorator not restoring value when placed on the root node of an HTN.
+- Fixed nodes not receiving the OnPlanExecutionFinish event if the plan was aborted due to StopHTN (e.g., when the HTNComponent is destroyed).
+- Fixed StopHTN(bDisregardLatentAbort=True) being ignored if called during tick of the HTN component.
+- Fixed HTNComponent still advancing to next tasks if paused from inside a task that finishes execution instantly.
+- Fixed RunHTN not switching to the new HTN if the HTNComponent is already running one.
+- Fixed the PlanExit condition check of a decorator failing when exiting a False branch of an If node during planning. This was causing the planning to fail.
+- Fixed OnPlanEnter/OnPlanExit of decorators not being called under some circumstances when entering/exiting a False branch of an If node.
+- Fixed being able to add decorators/services to other decorators/services in the editor via the right-click context menu.
+
+### Improvements and other changes
+
+- The [Fail](node-reference?id=fail) task can now be configured to fail during execution instead of planning and now logs a configurable failure message in both cases.
+- The IsRunning function of HTNComponent is more reliable, no longer returning false during the gaps between planning and execution.
+- [Plan recheck](planning?id=plan-rechecking) is now also ran before a plan begins executing.
+- Services now receive OnExecutionFinish events before decorators. Combined with the fact that they get OnExecutionStart *after* decorators, the order of OnExecutionFinish calls is always opposite to the order OnExecutionStart calls for all subnodes.
+- If the HTNComponent is paused, aborting current plan or starting a new one is deferred until the component is no longer paused.
+- Plans with no tasks (degenerate plans) now instantly succeed instead of instantly failing.
+- For [HTNExtensions](htn-extensions.md), Tick is now called before the current plan is ticked instead of after.
+- The [Visual Logger](vislog.md) now shows the current plan in the Status tab. If there are multiple [subplans](subplan.md), it shows each subplan separately.
+
+### Deprecations
+
+Functions that were deprecated and will be removed in a future update.
+
+- **ForceReplan** functions are now deprecated. Instead, use the new [**Replan**](replanning.md) function that takes a [HTNReplanParameters](replanning?id=replan-parameters) struct, which contains a debug reason string that will be logged in the Visual Logger and other settings. This function is available on the HTNComponent and on HTNNodes.
+- **NotifyEventBasedDecoratorCondition** function of HTNComponent is now deprecated. Decorators now have a member function [**NotifyEventBasedCondition**](decorator?id=notifyeventbasedcondition) that should be called instead.
+
+!> Note to UE4.26 users: Since the release of Unreal Engine 5.1, the Marketplace no longer distributes updates to users of 4.26 and below. This update still works on 4.26, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_4.2x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
+
 ## 1.8.10
 
 - Fixed crash caused by calling ForceAbort inside a call to AbortTask.

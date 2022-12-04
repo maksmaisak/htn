@@ -35,6 +35,27 @@ This means different things for different standalone nodes:
 
 The scoping rules are the same for [Services](service.md).
 
+## Functions
+
+### NotifyEventBasedCondition
+
+![ForceReplan](_media/notify_event_based_decorator_condition.png ':size=400')
+
+To be called by decorators that report changes in their condition in an event-based way instead of on tick (e.g., the [Blackboard decorator](node-reference?id=blackboard)). 
+
+Parameter|Description
+---|---
+**Raw Condition Value**|The updated raw condition value (without any inversion applied to it even if "Inverse Condition" is enabled).
+**Can Abort Plan Instantly**|If true, and this notify triggers a replan, it will be done instantly, like calling [ForceReplan](htn-component?id=forcereplan) with **Force Abort Plan** enabled.
+
+The function returns true if this resulted in a replan.
+
+### Replan
+
+![Replan HTN Component](_media/replan_decorator.png ':size=400')
+
+Forces the HTNComponent to start making a new plan to replace the current one. See the [Replanning](replanning.md) page for more details. 
+
 ## Overridable functions
 
 ### PerformConditionCheck

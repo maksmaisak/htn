@@ -7,7 +7,7 @@ Their execution scope is the same [as with decorators](decorator?id=execution-sc
 ![Service](_media/service.png)
 
 In this example, for as long as the character is busy getting into shooting range, every 0.15 to 0.25 seconds a piece of code will be executed.
-It checks if the enemy moved too much since the service became active. If it did, the service forces the character to start making a new plan by calling `ForceReplan`.
+It checks if the enemy moved too much since the service became active. If it did, the service forces the character to start making a new plan by calling [`Replan`](service?id=replan).
 
 > Custom services can be made by creating a subclass of `UHTNService_BlueprintBase` (for Blueprints) or `UHTNService` (for C++).
 
@@ -16,6 +16,14 @@ It checks if the enemy moved too much since the service became active. If it did
 If the `Use Persistent Tick Countdown` option is enabled, the service will keep track of the countdown to the next [Tick](service?id=receivetick) in a way that persists between different plans. For example, if the service has a 5-second interval, but the plan was aborted after 3 seconds, this service will tick 2 seconds after the beginning of the next plan.
 
 If this option is not enabled (default), the tick countdown is reset every time a new plan begins executing, causing the service to tick every time that happens.
+
+## Functions
+
+### Replan
+
+![Replan HTN Component](_media/replan_service.png ':size=400')
+
+Forces the HTNComponent to start making a new plan to replace the current one. See the [Replanning](replanning.md) page for more details. 
 
 ## Overridable functions
 

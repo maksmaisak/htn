@@ -20,8 +20,10 @@
     - [Task](task.md)
     - [Decorator](decorator.md)
     - [Service](service.md)
+    - [Replanning](replanning.md)
     - [SubNetwork (Compound Task)](subnetwork.md)
     - [SubNetwork Dynamic](subnetwork-dynamic.md)
+    - [SubPlan](subplan.md)
     - Structural nodes
         - [If](if.md)
         - [Prefer](prefer.md)
@@ -30,5 +32,7 @@
         - [AnyOrder](anyorder.md)
         - [Sequence](sequence.md)
         - [Scope](scope.md)
+    - Utility
+        - [Location Provider](location-provider.md)
 
 - [Legal](legal.md)

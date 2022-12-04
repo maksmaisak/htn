@@ -16,6 +16,8 @@ Any AIController executing an HTN plan logs the remaining part of the plan visua
 5. Move to shooting location
 6. Shoot at the yellow target
 
+On the bottom left, in the Status tab of the Visual Logger, there is a more detailed, text-based representation of the current plan, with the currently-executing step prefixed with `> `. This representations includes nodes like [SubNetwork](subnetwork.md) or [Sequence](sequence.md), not just tasks.
+
 ?> Whether or not a task's name is shown on lines and locations in worldspace is determined by the `Show Task Name On Current Plan Visualization` property (true by default). Untick it to avoid  cluttering the visualization with planning-only tasks, such as [EQSQueries](eqs.md).
 
 ?> Custom tasks can log custom information during plan visualization by implementing the [`Receive Describe Plan Step To Visual Log`](task?id=receivedescribeplansteptovisuallog) function. An example of this is the `Shoot Firearm` task in the "SimpleTest" demo.
@@ -24,9 +26,10 @@ Any AIController executing an HTN plan logs the remaining part of the plan visua
 
 ![Log of a planning process](_media/planning_vislog.png ':size=1200')
 
-At the end of of the planning process, a traversal tree is logged, showing every candidate plan considered in the process, with cost and and consideration order.
+At the end of of the planning process, a planning tree is logged, compactly showing every candidate plan considered in the process. 
 
-Each line is a plan step, accepted or rejected, as considered for sequencing after the plan step one level above it.
-This way any sequence of tasks from the top level down is a candidate plan considered by the planner. If planning succeeded, steps that are part of the final plan are prefixed with `>`.
+Each line is a plan step that was added (or failed to be added) to a candidate plan. It shows the order in which this node was considered, and the total cost of the candidate plan after adding this node. Under each node, one indentation level deeper are the nodes that were considered as successors to it. 
 
-Tasks that failed to add to the plan for one reason or another are shown with the reason for failing. For instance, `[#36 Failed decorator Has Ammo] Attack practice target` means that on step 36 of planning, the planner failed to add `Attack practice target` to the plan because the character wasn't going to have enough ammo at that point in that plan.
+Every path from root to leaf of this tree is a distinct plan. If planning succeeded, steps that are part of the final plan are prefixed with `>`.
+
+Nodes that failed to add to the plan for one reason or another are shown with the reason for failing. For instance, `[#36 Failed decorator Has Ammo] Attack practice target` means that on step 36 of planning, the planner failed to add the task `Attack practice target` to the plan because the decorator "Has Ammo" failed during planning (meaning the character wasn't going to have enough ammo at that point in that plan).
