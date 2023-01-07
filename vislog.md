@@ -1,5 +1,5 @@
 
-The [Visual Logger](https://docs.unrealengine.com/en-US/Gameplay/Tools/VisualLogger/index.html) is a built-in debugging tool that allows logging text and visual representations of state, bundled with timestamps and ownership information. The information is logged in a way that can be reviewed later by scrolling through a timeline.
+The [Visual Logger](https://docs.unrealengine.com/5.1/en-US/visual-logger-in-unreal-engine/) is a built-in debugging tool that allows logging text and visual representations of state, bundled with timestamps and ownership information. The information is logged in a way that can be reviewed later by scrolling through a timeline.
 
 The plugin integrates with the visual logger to provide various information about planning and plan execution.
 
