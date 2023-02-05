@@ -16,7 +16,7 @@ Any AIController executing an HTN plan logs the remaining part of the plan visua
 5. Move to shooting location
 6. Shoot at the yellow target
 
-On the bottom left, in the Status tab of the Visual Logger, there is a more detailed, text-based representation of the current plan, with the currently-executing step prefixed with `> `. This representations includes nodes like [SubNetwork](subnetwork.md) or [Sequence](sequence.md), not just tasks.
+On the bottom left, in the Status tab of the Visual Logger, there is a more detailed, text-based representation of the current plan, with the currently-executing step prefixed with `> `. This representation includes nodes like [SubNetwork](subnetwork.md) or [Sequence](sequence.md), not just tasks.
 
 ?> Whether or not a task's name is shown on lines and locations in worldspace is determined by the `Show Task Name On Current Plan Visualization` property (true by default). Untick it to avoid  cluttering the visualization with planning-only tasks, such as [EQSQueries](eqs.md).
 

@@ -1,3 +1,5 @@
+# Introduction
+
 [Hierarchical Task Networks](https://en.wikipedia.org/wiki/Hierarchical_task_network) is a way to build AI that plans ahead instead of making decisions on a moment-to-moment basis.
 
 ![A character with its plan visualized](_media/bg.png ':size=1200')

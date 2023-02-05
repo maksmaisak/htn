@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="_media/icosahedron.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>HTN plugin for Unreal Engine</title>
+</head>
+
+<body>
+
+    <div class="bg-dark text-secondary py-5">
+        <div class="container">
+            <div class="row gy-5 row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col mt-0">
+                    <header class="d-flex py-3 justify-content-center justify-content-lg-start">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a href="#features" class="nav-link text-white">Features</a></li>
+                            <li class="nav-item"><a href="docs.html" class="nav-link text-white">Docs</a></li>
+                            <li class="nav-item"><a href="docs.html#/changelog" class="nav-link text-white">Changelog</a></li>
+                            <li class="nav-item"><a href="https://discord.gg/CQjRPnDNtc" target="_blank" class="nav-link text-white">Discord</a></li>
+                            <li class="nav-item"><a href="#buy" class="nav-link text-white">Buy</a></li>
+                        </ul>
+                    </header>
+                    <h1 class="display-5 fw-bold lh-1 mb-3 text-white">Hierarchical Task Networks Planning AI</h1>
+                    <p class="lead text-white">AI plugin for Unreal Engine. Build game AI with more control and flexibility using this fully-featured alternative to Behavior Trees</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="https://www.unrealengine.com/marketplace/product/29560d88937e4cd1a435f4b634890655" target="_blank" class="btn btn-lg btn-outline-info px-4 me-md-2">Unreal Marketplace</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="_media/editor_shot.png" class="img-fluid mx-auto d-block rounded" alt="An HTN executing in the editor" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main role="main">
+
+        <div class="bg-light">
+            <div class="container py-5">
+                <h1 class="text-center" id="features">AI that plans ahead</h1>
+                <p class="lead text-center">Create flexible character AI that can make and remake complex plans on the fly</p>
+                <div class="row gy-5 row-cols-1">
+                    <div class="col">
+                        <img src="_media/bg.png" class="d-block mx-lg-auto img-fluid rounded" alt="A character executing a tactical plan" loading="lazy">
+                    </div>
+                    <div class="col">
+                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-3" width="1.75em" height="1.75em" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Planning</h3>
+                                    <p>Actions are planned out ahead of time, taking into account the effects of each task. This way the AI will never start a sequence of tasks that it won't be able to finish</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-3" width="1.75em" height="1.75em" viewBox="0 0 16 16">
+                                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                    <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Blackboard As Worldstate</h3>
+                                    <p>A lightweight data structure with Blackboard keys is used to represent possible futures. HTN Tasks change the worldstate during planning to indicate their effects</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Replanning</h3>
+                                    <p>A new plan is made automatically when the current plan finishes or is aborted due to changing conditions</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Plans Within Plans</h3>
+                                    <p>Dynamically make and remake parts of a larger plan using SubPlan nodes. React to changing conditions without aborting the high-level plan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="container py-5">
+                <h1 class="text-center">Visual HTN Graph Editor</h1>
+                <p class="lead text-center">Define the decision-making of your AI by connecting HTN nodes in an intuitive graph editor</p>
+                <div class="row gy-5 row-cols-1 align-items-center">
+                    <div class="col">
+                        <img src="_media/example_htn2.png" class="d-block mx-lg-auto img-fluid rounded" alt="A simple Hierarchical Task Network" loading="lazy">
+                    </div>
+                    <div class="col">
+                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Intuitive Graph Editor</h3>
+                                    <p>Connect tasks in series to make them follow one another. Connect them in parallel to make the AI choose between multiple options during planning</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Control Flow</h3>
+                                    <p>Use a variety of structural nodes like Prefer, If, AnyOrder, Parallel to define the control flow of your HTN</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+                                    <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Priority Planning</h3>
+                                    <p>Use a Prefer Node to make the planner try different branches and pick the first one that can be fully planned out</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Cost-based Planning</h3>
+                                    <p>Or make the planner try all branches and efficiently pick the one with the lowest total cost. Both types of planning can be combined within the same HTN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light">
+            <div class="container py-5">
+                <h1 class="text-center" id="htn-nodes">HTN Nodes</h1>
+                <p class="lead text-center">Freely combine built-in nodes and easily create custom ones</p>
+                <div class="row gy-5 row-cols-1">
+                    <div class="col">
+                        <img src="_media/node_library.png" class="d-block mx-lg-auto img-fluid rounded" alt="Built-in HTN nodes" loading="lazy">
+                    </div>
+                    <div class="col">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                                  </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Tasks</h3>
+                                    <p>Tasks represent the actions your AI can do. They indicate their effects during planning and perform actions during execution</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Decorators</h3>
+                                    <p>Decorators can be attached to nodes to add conditions and/or extra behavior to them during both planning and execution</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Services</h3>
+                                    <p>Services can be attached to nodes to periodically run custom code during the execution of a specific part of the plan</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Structural Nodes</h3>
+                                    <p>Structural Nodes like Prefer, If, AnyOrder, Sequence, Parallel define the control flow of your AI</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Node Library</h3>
+                                    <p>Use an extensive library of built-in HTN nodes to quickly get started with your AI</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Custom Nodes</h3>
+                                    <p>Easily create new nodes in Blueprints or C++ with custom plan-time and execution-time behavior</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg style="transform: rotate(-90deg)" xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Parallel Node</h3>
+                                    <p>Execute indepentent sequences of tasks in parallel. Each parallel branch can be arbitrarily complex and can be looped or replanned independently</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+                                    <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Prefer Node</h3>
+                                    <p>Try to plan a sequence of tasks. If that can't be done, fall back to another sequence. Nest any number of Prefer nodes to implement priority planning</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">SubNetwork Node</h3>
+                                    <p>Use a sub-HTN as if it were a task to make your AI behaviors composable and reusable. Dynamically swap subnetworks for even greater flexibility</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">EQS Task</h3>
+                                    <p>Use the Environment Query System to determine movement destinations and more during planning, taking into account previously planned movement</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">SubPlan Node</h3>
+                                    <p>Dynamically make and remake parts of a larger plan using SubPlan nodes. React to changing conditions without aborting the high-level plan</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a7 7 0 1 1 2.898 5.673c-.167-.121-.216-.406-.002-.62l1.8-1.8a3.5 3.5 0 0 0 4.572-.328l1.414-1.415a.5.5 0 0 0 0-.707l-.707-.707 1.559-1.563a.5.5 0 1 0-.708-.706l-1.559 1.562-1.414-1.414 1.56-1.562a.5.5 0 1 0-.707-.706l-1.56 1.56-.707-.706a.5.5 0 0 0-.707 0L5.318 5.975a3.5 3.5 0 0 0-.328 4.571l-1.8 1.8c-.58.58-.62 1.6.121 2.137A8 8 0 1 0 0 8a.5.5 0 0 0 1 0Z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">HTN Extensions</h3>
+                                    <p>Extend the HTNComponent with extra functionality for your nodes by creating HTN Extensions in Blueprints or C++</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="container py-5">
+                <h1 class="text-center" id="debugging">Debugging</h1>
+                <p class="lead text-center">Debug planning and execution using the Visual Logger and the HTN editor itself</p>
+                <div class="row gy-5 row-cols-1">
+                    <div class="col">
+                        <img src="_media/vislog.png" class="d-block mx-lg-auto img-fluid rounded" alt="Visual Logger integration" loading="lazy">
+                    </div>
+                    <div class="col">
+                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Visual Logger</h3>
+                                    <p>The Visual Logger records the state of the AI and its events for each frame. You can easily scroll through the recorded timeline to see every decision the AI has made</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.5 11.5A.5.5 0 0 1 5 11h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm-2-4A.5.5 0 0 1 1 3h10a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Debug the Planning Process</h3>
+                                    <p>The planning process is recorded in the Visual Logger in detail, showing which possible plans were accepted or rejected and why</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">Plan Visualization</h3>
+                                    <p>The Visual Logger shows a visualization of the current plan in the viewport, so you can see where the AI was going and what it was going to do at every point in time</p>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.75em" height="1.75em" fill="currentColor" class="bi flex-shrink-0 me-3" viewBox="0 0 16 16">
+                                    <path d="M16 3a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3zm-5-1v12H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h9zm1 0h2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-2V2z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="fw-bold mb-0 fs-4">HTN Editor Debugging</h3>
+                                    <p>See the current plan of any active AI highlighted directly in the HTN editor. Place breakpoints and inspect current and planned Blackboard/Worldstate values</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-light">
+            <div class="container py-5">
+                <h1 class="text-center mb-4" id="support">Support</h1>
+                <div class="row g-4 text-center justify-content-center">
+                    <div class="feature col-12 col-sm-6 col-xl-4">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                            </svg>
+                        </div>
+                        <h3>Discord</h3>
+                        <p>Get support or ask questions before you buy</p>
+                        <a href="https://discord.gg/CQjRPnDNtc" target="_blank" class="btn btn-outline-primary">Visit Discord</a>
+                    </div>
+                    <div class="feature col-12 col-sm-6 col-xl-4">
+                        <div class="feature-icon d-inline-flex align-items-center justify-content-center fs-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                                <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                            </svg>
+                        </div>
+                        <h3>Documentation</h3>
+                        <p>View tutorials and documentation</p>
+                        <a href="docs.html" target="_blank" class="btn btn-outline-primary">Read documentation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="container py-5">
+                <h1 class="text-center mb-4" id="buy">Buy</h1>
+                <div class="d-flex justify-content-center">
+                    <div class="card shadow" style="width: auto;">
+                        <div class="card-header"><h2 class="text-center m-2">Unreal Marketplace</h2></div>
+                        <div class="card-body fs-5 p-4">
+                            <ul class="list-unstyled mb-3">
+                                <li class="py-2">
+                                    <svg class="bi flex-shrink-0" width="1.25em" height="1.25em">
+                                        <use xlink:href="#check2"></use>
+                                    </svg>
+                                    Free Lifetime Updates
+                                </li>
+                                <li class="py-2">
+                                    <svg class="bi flex-shrink-0" width="1.25em" height="1.25em">
+                                        <use xlink:href="#check2"></use>
+                                    </svg>
+                                    Free Support
+                                </li>
+                                <li class="py-2">
+                                    <svg class="bi flex-shrink-0" width="1.25em" height="1.25em">
+                                        <use xlink:href="#check2"></use>
+                                    </svg>
+                                    Complete C++ source code access
+                                </li>
+                            </ul>
+                            <a href="https://www.unrealengine.com/marketplace/product/29560d88937e4cd1a435f4b634890655" target="_blank" class="btn btn-primary fs-5 w-100">Get started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="bg-light">
+        <div class="container">
+            <footer class="pt-3 mt-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#features" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="docs.html" class="nav-link px-2 text-muted">Documentation</a></li>
+                    <li class="nav-item"><a href="docs.html#/changelog" class="nav-link px-2 text-muted">Changelog</a></li>
+                    <li class="nav-item"><a href="https://discord.gg/CQjRPnDNtc" target="_blank" class="nav-link px-2 text-muted">Discord</a></li>
+                    <li class="nav-item"><a href="#buy" class="nav-link px-2 text-muted">Buy</a></li>
+                </ul>
+                <p class="text-center text-muted">© 2023 Maksym Maisak</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
