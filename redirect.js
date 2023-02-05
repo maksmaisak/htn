@@ -9,5 +9,5 @@ if (location && location.href && location.href.includes(oldURL) && !location.hre
 } else if (location.href.includes(indexURL)) {
     location.replace(location.href.replace(indexURL, frontURL));
 } else {
-    location.replace(frontURL);
+    location.replace(location.href + frontURL);
 }
