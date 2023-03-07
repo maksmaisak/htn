@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.9.2
+
+- Fixed [TraceTest decorators](node-reference?id=trace-test) in the HTN asset retaining references to Play-in-editor actors in a Transient buffer, causing warnings related to Garbage Collection under rare circumstances.
+
 ## 1.9.1
 
 - Fixed UE5.1 bug where an HTNComponent is not properly initialized if it belongs to an Actor Blueprint whose C++ base class creates the HTNComponent in its constructor.
