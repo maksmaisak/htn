@@ -1,5 +1,14 @@
 This page contains release notes for updates of the plugin.
 
+## 1.10.0
+
+TODO this changelog is WiP
+
+- Improvements to the [DistanceCheck](node-reference?id=distance-check) decorator:
+    - The min and max distances for the decorator passes are now specified as a Range that may be unbounded, inclusive, or exclusive (used to be always inclusive)
+    - If the location sources provide multiple values, checks all combinations and passes if all combinations pass (default) or any combinations pass (if "All Must Pass" is disabled).
+    - Added more ways to measure the distance: Distance 3D (used to be the only option), Distance 2D, Distance Z (Signed), Distance Z (Absolute), Capsule (see [node reference](node-reference?id=distance-check) for details)
+
 ## 1.9.2
 
 - Fixed [TraceTest decorators](node-reference?id=trace-test) in the HTN asset retaining references to Play-in-editor actors in a Transient buffer, causing warnings related to Garbage Collection under rare circumstances.

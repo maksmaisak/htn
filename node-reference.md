@@ -159,8 +159,11 @@ Property|Description
 ---|---
 **A**|The [HTNLocationProvider](location-provider.md) for the first location.
 **B**|The [HTNLocationProvider](location-provider.md) for the second location.
-**Min Distance**|Minimum distance between the locations provided by **A** and **B**.
-**Max Distance**|Maximum distance between the locations provided by **A** and **B**.
+**Distance Range**|The decorator will pass if the distance between **A** and **B** is in this range. The minimum and maximum values can be inclusive, exclusive, or open.
+**Check Mode**|The way to measure the distance between **A** and **B**.<br><br><table><tbody>  <tr><td>**Distance 3D**</td><td>3D distance</td></tr>  <tr><td>**Distance 2D**</td><td>Distance if the Z of both locations was 0</td></tr>  <tr><td>**Distance Z (Signed)**</td><td>Signed vertical distance: (B.Z - A.Z). Will be negative if B is below A</td></tr> <tr><td>**Distance Z (Absolute)**</td><td>Absolute vertical distance</td></tr> <tr><td>**Capsule**</td><td>If there was a capsule centered at A with the specified half-height and radius, calculates the distance from B to the surface of that capsule. If B is inside the capsule, returns 0. Swapping A and B has no effect. When capsule radius is 0 (default), this is identical to **Distance 2D** when the points are *roughly* at the same height (less than **Capsule Half Height** difference) and similar to **Distance 3D** when the heights are different.</td></tr> </tbody></table>
+**Capsule Half Height**|Only relevant when the **Check Mode** is **Capsule**. The half-height of the capsule to which the distance is measured.
+**Capsule Radius**|Only relevant when the **Check Mode** is **Capsule**. The radius of the capsule to which the distance is measured.
+**All Must Pass**|If **A** or **B** provide multiple locations (e.g. A is configured to produce the locations of all allies and B is configured to produce the locations of all enemies), the distance test will run for all combinations of the two. If "All Must Pass" is true, the decorator will pass if all of them pass. Otherwise if any of them pass. Inverting the decorator inverts the final value of the decorator, not the individual checks against combinations.
 
 ### Do Once
 
