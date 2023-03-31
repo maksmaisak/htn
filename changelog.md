@@ -14,6 +14,7 @@ This page contains release notes for updates of the plugin.
 - Blueprint nodes that have structs as public properties now display them more cleanly: with newlines and indents for the struct's variables instead of describing the entire struct in one line.
 - Processing subnodes (decorators and services) no longer allocates memory on the heap in most cases, leading to slightly better performance.
 - UHTNStandaloneNode now has a GetNextNodes function, allowing custom C++ nodes to decide which nodes after them are considered during planning.
+- Removed functions that were deprecated in v1.9.0
 
 ## 1.9.2
 
