@@ -9,6 +9,10 @@ This page contains release notes for updates of the plugin.
     - The min and max distances for the decorator passes are now specified as a Range that may be unbounded, inclusive, or exclusive (used to be always inclusive)
     - If the location sources provide multiple values, checks all combinations and passes if all combinations pass (default) or any combinations pass (if "All Must Pass" is disabled).
     - Added more ways to measure the distance: Distance 3D (used to be the only option), Distance 2D, Distance Z (Signed), Distance Z (Absolute), Capsule (see [node reference](node-reference?id=distance-check) for details)
+- Fixed a Garbage Collection crash related to worldstate proxies retaining a pointer to an HTN Component that is different from the proxies' owner component.
+- Blueprint nodes that have structs as public properties now display them more cleanly: with newlines and indents for the struct's variables instead of describing the entire struct in one line.
+- Processing subnodes (decorators and services) no longer allocates memory on the heap in most cases, leading to slightly better performance.
+- UHTNStandaloneNode now has a GetNextNodes function, allowing custom C++ nodes to decide which nodes after them are considered during planning.
 
 ## 1.9.2
 
