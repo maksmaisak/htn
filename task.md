@@ -11,11 +11,18 @@ When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#
 
 ![CreatePlanSteps of GrabFirearm](_media/grab_firearm_create_plan_steps.png ':size=1200')
 
+### Submit Plan Step
+
 If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is "having a valid Firearm in a specific key of the worldstate", and the effect is "putting that Firearm in another key of the worldstate".
 
-!> All effects applied to a worldstate during planning are applied to the blackboard when the task successfully **finishes** executing.
+Effects applied to a worldstate during planning are also applied to the blackboard during plan execution, but only when the task successfully **finishes** executing.
+
+#### Submitting multiple plan steps
 
 It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
+
+By default, each alternative plan step will be considered separately and the planner will pick hte one that produces the plan with the lowest total cost.
+However, if `ProcessSubmittedPlanStepsInOrder` is enabled, each subsequent step will instead only be considered if all the previous ones failed to plan, similarly to the [Prefer node](prefer.md). 
 
 ## Execution
 
