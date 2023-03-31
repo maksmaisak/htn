@@ -19,10 +19,9 @@ Effects applied to a worldstate during planning are also applied to the blackboa
 
 #### Submitting multiple plan steps
 
-It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects.
+It is possible to submit multiple alternative plan steps by calling `SubmitPlanStep` multiple times. Each call replaces the accessed worldstate with a fresh copy without the applied effects. This allows producing multiple candidate plans from a single task, each with a step with a different set of effects. Each alternative plan step will be considered separately and only one will become part of the final plan. 
 
-By default, each alternative plan step will be considered separately and the planner will pick hte one that produces the plan with the lowest total cost.
-However, if `ProcessSubmittedPlanStepsInOrder` is enabled, each subsequent step will instead only be considered if all the previous ones failed to plan, similarly to the [Prefer node](prefer.md). 
+By default, the planner will pick the candidate plan with the [lowest total cost](planning?id=example-costs). However, if `ProcessSubmittedPlanStepsInOrder` is enabled, each submitted step will only be considered if all the previous ones failed to produce a plan, similarly to the [Prefer node](prefer.md). 
 
 ## Execution
 
