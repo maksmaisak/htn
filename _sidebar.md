@@ -32,6 +32,7 @@
         - [AnyOrder](anyorder.md)
         - [Sequence](sequence.md)
         - [Scope](scope.md)
+        - [Random & Random Weight](random.md)
     - Utility
         - [Location Provider](location-provider.md)
 

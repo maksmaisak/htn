@@ -2,8 +2,9 @@ This page contains release notes for updates of the plugin.
 
 ## 1.10.0
 
-TODO this changelog is WiP
-
+- [Random and Random Weight](random.md) nodes allow for picking between multiple branches at random during planning:
+    - It is possible to make some branches more likely to be picked than others
+    - If one branch fails planning, it automatically falls back to another branch until a valid plan is produced (configurable)
 - Improvements to the [DistanceCheck](node-reference?id=distance-check) decorator:
     - The min and max distances for the decorator passes are now specified as a Range that may be unbounded, inclusive, or exclusive (used to be always inclusive)
     - If the location sources provide multiple values, checks all combinations and passes if all combinations pass (default) or any combinations pass (if "All Must Pass" is disabled).
