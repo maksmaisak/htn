@@ -1,5 +1,29 @@
 This page contains release notes for updates of the plugin.
 
+## 1.11.0
+
+### Additions & Improvements
+
+- It is now possible to [Diff](diff.md) different revisions of the same HTN asset when using [Source Control](https://docs.unrealengine.com/en-US/source-control-in-unreal-engine/). This allows for visualizing the changes made to HTN assets over time.
+- Added a [Copy Value task](node-reference?id=copy-value) for copying one worldstate key into another during planning.
+- Updated the Blackboard editor. It is now possible to group Blackboard keys into categories.
+- Double-clicking an [EQSQuery](eqs.md) task now opens the EQS Query it contains.
+- `UHTNNode` now has a `GetAssetToOpenOnDoubleClick` function that allows custom C++ nodes to allow opening an asset on double click.
+
+### Bug fixes
+
+- Fixed event-based decorators not working when placed on the root node of an HTN.
+- Fixed crash when replanning due to a blackboard key being changed outside of an HTNComponent's Tick.
+- Fixed the "Play", "Resume", "Stop" buttons in the HTN Editor not having icons.
+
+### Deprecations
+
+The following functions of HTNComponent are now deprecated and will be removed in a future update. You should instead use the matching functions on the [Cooldown Extension](node-reference?id=cooldown-1) and the [SubNetworkDynamic Extension](node-reference?id=subnetwork-dynamic). For more information, see [HTN Extensions](htn-extensions.md) and the deprecation messages on the functions themselves.
+- `GetCooldownEndTime`
+- `AddCooldownDuration`
+- `GetDynamicHTN`
+- `SetDynamicHTN`
+
 ## 1.10.0
 
 - [Random and Random Weight](random.md) nodes allow for picking between multiple branches at random during planning:
@@ -13,7 +37,7 @@ This page contains release notes for updates of the plugin.
 - Fixed a Garbage Collection crash related to worldstate proxies retaining a pointer to an HTN Component that is different from the proxies' owner component.
 - Blueprint nodes that have structs as public properties now display them more cleanly: with newlines and indents for the struct's variables instead of describing the entire struct in one line.
 - Processing subnodes (decorators and services) no longer allocates memory on the heap in most cases, leading to slightly better performance.
-- UHTNStandaloneNode now has a GetNextNodes function, allowing custom C++ nodes to decide which nodes after them are considered during planning.
+- `UHTNStandaloneNode` now has a `GetNextNodes` function, allowing custom C++ nodes to decide which nodes after them are considered during planning.
 - Removed functions that were deprecated in v1.9.0
 
 ## 1.9.2
