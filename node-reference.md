@@ -79,6 +79,15 @@ Property|Description
 ---|---
 **Blackboard Key**|The blackboard key to set the value of. All key types are supported.
 
+### Copy Value
+
+During planning, copies the value from one worldstate key into another. Supports keys of any type. Fails during planning if the copying fails (e.g., if the selected keys don't have matching types)
+
+Property|Description
+---|---
+**Source Key**|The blackboard/worldstate key to copy from.
+**Target Key**|The blackboard/worldstate key to copy to.
+
 ### EQS Query
 
 During planning, runs an [EQS query](https://docs.unrealengine.com/InteractiveExperiences/ArtificialIntelligence/EQS/) and puts the result in the specified key. 
