@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.11.1
+
+- Fixed crash when changing [dynamic subnetworks](subnetwork-dynamic) while executing a plan involving both dynamic subnetworks and [subplans](subplan.md).
+- When changing dynamic subnetworks during planning, now checking for the planning status of all plan instances instead of just the root plan instance.
+- Made the LogHTN category show up in the output log by default to make log files more useful (only messages with Log verbosity or above, not Verbose or VeryVerbose).
+
 ## 1.11.0
 
 ### Additions & Improvements
