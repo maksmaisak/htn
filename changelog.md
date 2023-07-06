@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.11.3
+
+- The [Focus Scope decorator](node-reference?id=focus-scope) now supports Rotator keys. A Focus Scope with a Rotator key will make the character face along the rotation specified in the Rotator key.
+
 ## 1.11.2
 
 - Added support for Unreal Engine 5.2

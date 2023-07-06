@@ -191,6 +191,14 @@ Property|Description
 [**On execution start**](decorator?id=receiveexecutionstart), optionally sets the focus of the AIController to the value of the specified blackboard key.<br>
 [**On execution finish**](decorator?id=receiveexecutionfinish), if "Restore Old Focus On Execution Finish" is enabled, restores the focus back to its original value.
 
+Supports the following key types:
+
+Key Type|Behavior
+---|---
+**Vector**|Sets the focal point to the location represented by the vector in the key
+**Object (Actor)**|Sets the focus to the actor in the key. The controller actor will keep focusing on the target actor even if it moves.
+**Rotator**|Sets the focus to a location some distance away (`Rotation Key Look Ahead Distance`) in the direction of this rotator. This makes the controlled actor look in the direction of the Rotator. This location is updated each frame if `Update Focal Point From Rotator Key Every Frame` is enabled. The location is calculated away from the result of calling `GetPawnViewLocation()` on the controlled pawn.
+
 Property|Description
 ---|---
 **Set New Focus**|If true, will set the focus of the AIController to the value of the **Focus Target** blackboard key. Upon execution finish, the focus will be restored to the value it had on execution start regardless.
@@ -198,6 +206,8 @@ Property|Description
 **Observe Blackboard Value**|If true, the decorator will respond to changes in the FocusTarget key.
 **Restore Old Focus On Execution Finish**|If true, OnExecutionFinish focus will be restored to the value it had before entering this focus.
 **Focus Priority**|AIControllers allow multiple focuses to be active at the same time. The Blueprint functions [SetFocus](https://docs.unrealengine.com/BlueprintAPI/AI/SetFocus/) and [SetFocalPoint](https://docs.unrealengine.com/BlueprintAPI/AI/SetFocalPoint/) use priority 2 (the highest — `Gameplay`). See `EAIFocusPriority`.
+**Update Focal Point From Rotator Key Every Frame**|Only relevant when the Blackboard Key is a Rotator. If true, the focal point will be updated every frame so that the controlled pawn keeps looking in the same direction even as it moves.
+**Rotation Key Look Ahead Distance**|Only relevant when the Blackboard Key is a Rotator. The focal point will be set this many centimeters away from the controlled pawn's viewpoint (`GetPawnViewLocation`) along the direction of the Rotator. 
 
 ### Guard Value
 
