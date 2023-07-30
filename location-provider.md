@@ -1,4 +1,4 @@
-The `HTNLocationProvider` struct is a way to provide locations to HTN nodes that is more flexible than using Blackboard Key Selectors. For example, it's used by the [DistanceCheck decorator](node-reference?id=distance-check) to get the two locations between which to measure the distance:
+The `HTNLocationSource` struct is a way to provide locations to HTN nodes that is more flexible than using Blackboard Key Selectors. For example, it's used by the [DistanceCheck decorator](node-reference?id=distance-check) to get the two locations between which to measure the distance:
 
 ![Distance Check decorator and its settings](_media/HTNDecorator_DistanceCheck.png ':size=1200')
 
@@ -6,7 +6,7 @@ The decorator on the image above passes when the distance between these two loca
 - The location of the controlled pawn at that point in the plan, offset upwards by 50cm
 - The location of the head of the CurrentEnemy
 
-The decorator itself doesn't know where the locations are coming from, that is handled by the location provider struct itself. This is very flexible because the location providers of a node can be configured differently for different uses of the same node in different parts of the HTN. 
+The decorator itself doesn't know where the locations are coming from, that is handled by the location source struct itself. This is very flexible because the location sources of a node can be configured differently for different uses of the same node in different parts of the HTN. 
 
 ### Settings
 
@@ -19,16 +19,16 @@ Property|Description
 
 ### Usage
 
-Location Providers can be used in both C++ and Blueprint nodes. 
+Location Sources can be used in both C++ and Blueprint nodes. 
 
 #### Blueprints
 
-For Blueprint nodes, it's a matter of adding a property of type HTNLocationProvider to the node, and calling **Get Single Location from HTNLocation Source** or **Get Multiple Locations from HTNLocation Source**:
+For Blueprint nodes, it's a matter of adding a property of type HTNLocationSource to the node, and calling **Get Single Location from HTNLocation Source** or **Get Multiple Locations from HTNLocation Source**:
 
-![Get Locations from HTN Location Provider from Blueprint code](_media/location_provider_get_location_from_blueprint.png ':size=600')
+![Get Locations from HTN Location Source from Blueprint code](_media/location_provider_get_location_from_blueprint.png ':size=600')
 
 #### C++
 
 C++ usage is similar, but has key differences:
-- `GetLocation`/`GetLocations` member functions of the `FHTNLocaitonProvider` struct may be used instead of the Blueprint functions above.
+- `GetLocation`/`GetLocations` member functions of the `FHTNLocaitonSource` struct may be used instead of the Blueprint functions above.
 - `InitializeBlackboardKeySelector` needs to be called in the node's constructor and `InitializeFromAsset` needs to be called from the node's `InitializeFromAsset` function (see `UHTNDecorator_DistanceCheck` for an example).

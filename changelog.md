@@ -1,5 +1,10 @@
 This page contains release notes for updates of the plugin.
 
+## 1.11.4
+
+- [Diff view](diff.md) improvement: if a property in a struct was changed, the diff view now shows which property it was instead of just showing the whole struct as changed. 
+- Fixed a bug in the diff view where subobjects of an HTN node (e.g. an [HTNLocationSource](location-provider.md) on a [DistanceCheck](node-reference?id=distance-check) decorator) would always show up as changed.
+
 ## 1.11.3
 
 - The [Focus Scope decorator](node-reference?id=focus-scope) now supports Rotator keys. A Focus Scope with a Rotator key will make the character face along the rotation specified in the Rotator key.
@@ -66,7 +71,7 @@ The following functions of HTNComponent are now deprecated and will be removed i
 
 ## 1.9.0
 
-This major update introduces [SubPlan tasks](subplan.md), [Location Providers](location-provider.md), as well as many bug fixes and improvements.
+This major update introduces [SubPlan tasks](subplan.md), [Location Sources](location-provider.md), as well as many bug fixes and improvements.
 
 !> This update contains breaking changes for C++ projects and some function deprecations for Blueprint projects, make sure your project is backed up before updating.<br>The HTNDecorator_BlackboardBase::OnBlackboardKeyValueChange() function now also passes the NodeMemory pointer.
 <br>Some existing Blueprint code (e.g., calls to ForceReplan functions) will get deprecation warnings but will still work as before. 
@@ -78,7 +83,7 @@ This major update introduces [SubPlan tasks](subplan.md), [Location Providers](l
     - Making a high-level plan and planning the individual parts as we get to them.
     - Making a long plan with sections, such that if we fail in one section, it will only replan from the beginning of that section without restarting from the very beginning.
     - More examples on the [documentation page on subplans](subplan.md).
-- [DistanceCheck](node-reference?id=distance-check) now uses [HTNLocationProvider](location-provider.md) instead of BlackboardKeySelector to get the locations to measure the distance between. Existing usages of this decorator are automatically fixed up for the new version. HTNLocationProvider is a struct that allows for getting a location flexibly from a blackboard/worldstate key. For example, it allows for getting the location of the head or the feet of the actor in the key, and allows for providing a custom location getter. This struct can be used by custom nodes (including Blueprint ones) to read locations from the worldstate or elsewhere, as an alternative to BlackboardKeySelector.
+- [DistanceCheck](node-reference?id=distance-check) now uses [HTNLocationSource](location-provider.md) instead of BlackboardKeySelector to get the locations to measure the distance between. Existing usages of this decorator are automatically fixed up for the new version. HTNLocationSource is a struct that allows for getting a location flexibly from a blackboard/worldstate key. For example, it allows for getting the location of the head or the feet of the actor in the key, and allows for providing a custom location getter. This struct can be used by custom nodes (including Blueprint ones) to read locations from the worldstate or elsewhere, as an alternative to BlackboardKeySelector.
 
 ### Bug fixes
 
