@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.11.5
+
+- Fixed variable initialization bug that would cause a crash in packaged builds.
+
 ## 1.11.4
 
 - [Diff view](diff.md) improvement: if a property in a struct was changed, the diff view now shows which property it was instead of just showing the whole struct as changed. 
