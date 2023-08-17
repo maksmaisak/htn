@@ -1,6 +1,4 @@
-HTN Extensions are a way to add custom data and/or behavior to the HTN component in a way that persists between different plans. 
-
-For example, which [**dynamic subnetworks**](https://maksmaisak.github.io/htn/#/subnetwork-dynamic) are associated with which gameplay tags, which [**DoOnce**](node-reference?id=do-once-1) or [**Cooldown**](node-reference?id=cooldown-1) tags are active, etc.
+HTN Extensions are a way to add custom data and/or behavior to the HTN component in a way that persists between different plans. For example, which [**dynamic subnetworks**](subnetwork-dynamic) are associated with which gameplay tags, which [**DoOnce**](node-reference?id=do-once-1) or [**Cooldown**](node-reference?id=cooldown-1) tags are active, etc. An HTN Extension is an object that is part of the HTNComponent and can be accessed by its class:
 
 ![HTN Extensions: Find, Add, Remove](_media/HTNExtensions_FindAddRemove.png ':size=800')
 
