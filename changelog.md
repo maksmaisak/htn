@@ -1,5 +1,12 @@
 This page contains release notes for updates of the plugin.
 
+## 1.12.0
+
+- [Decorators](decorator.md) now have a configurable condition check interval and tick function interval. This can be used to improve performance by checking the condition of a decorator (and calling its tick function) at a randomized interval (e.g., every 0.2-0.3s) instead of every frame.
+- Decorators whose conditions can't abort the plan (e.g., when they're in the False branch of an [If](if.md) node with `Can Conditions Interrupt False Branch` disabled) no longer have their condition evaluated during execution, as it would have no effect. This is purely an optimization and has no effect on behavior.
+- The following types of properties in Blueprint nodes now automatically appear in the node description in the editor: Object, Class, Array, Set, Map, Float Range, Int Range
+- Floating-point values no longer appear with many trailing zeros.
+
 ## 1.11.5
 
 - Fixed variable initialization bug that would cause a crash in packaged builds.

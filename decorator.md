@@ -2,7 +2,7 @@
 
 Decorators are subnodes used to modify the plan-time and execution-time behavior of a standalone node, such as a task, a compound task, or a structural node.
 
-![Decorators on a task](_media/decorator.png)
+![Decorators on a task](_media/decorator.png ':size=1200')
 
 Decorators can be used for the following:
 - Conditions
@@ -21,17 +21,17 @@ Property|Description
 **Check Condition on Plan Enter**|During planning, when entering the scope of the decorator.
 **Check Condition on Plan Exit**|During planning, when exiting the scope of the decorator. 
 **Check Condition on Plan Recheck**|During plan execution, when the the future portion of the current plan is [rechecked](planning?id=plan-rechecking). If this is enabled, the condition is evaluated every tick for every future plan step in which this decorator is active.
-**Check Condition on Tick**|During plan execution, when the planner rechecks a current plan for validity. this is called for every future step of the current plan, in which this decorator is active.<br><br>If **"Check Condition on Tick Only Once"** is enabled (only relevant when "Check Condition on Tick" is active), during execution the tick condition will only be checked once (when entering the decorator's scope during execution). The resulting value is cached and reused for all future ticks of this decorator in this plan. This is useful for decorators that report changes in their conditions in an event-based way (by calling [NotifyEventBasedDecoratorCondition on the HTNComponent](htn-component?id=notifyeventbaseddecoratorcondition)) instead of on tick, such as the [Blackboard decorator](node-reference?id=blackboard).
+**Check Condition on Tick**|During plan execution, while the decorator is active (see [Execution Scope](decorator?id=execution-scope) below).<br><br>By default the condition is checked every tick but can be made to update less often by changing the variables **Condition Check Interval** and **Condition Check Interval Random Deviation**. The condition will be checked at a random interval between **Condition Check Interval - Condition Check Interval Random Deviation** seconds and **Condition Check Interval + Condition Check Interval Random Deviation** seconds. This interval is recalculated after every condition check.<br><br>If **"Check Condition on Tick Only Once"** is enabled (only relevant when **Check Condition on Tick** is active), during execution the tick condition will only be checked once (when entering the decorator's scope during execution). The resulting value is cached and reused for all future ticks of this decorator in this plan. This is useful for decorators that report changes in their conditions in an event-based way (by calling [NotifyEventBasedDecoratorCondition on the HTNComponent](htn-component?id=notifyeventbaseddecoratorcondition)) instead of on tick, such as the [Blackboard decorator](node-reference?id=blackboard).
 
 ## Execution scope
 
 A decorator is active for as long as the node it's on is active. 
 This means different things for different standalone nodes:
 
-- For a primitive task – while the task is executing. 
-- For a compound task – while the sub-plan of that task is executing.
-- For a structural node – while any task within this HTN after this structural node is executing.
-- For a root node – while any task in or under the current HTN is executing.
+- For a [primitive task](task.md) – while the task is executing. 
+- For a [subnetwork](subnetwork.md) – while any task inside or under the subnetwork is executing.
+- For a structural node – while any task within or under this HTN after this structural node is executing.
+- For a root node – while any task inside or under the current HTN is executing.
 
 The scoping rules are the same for [Services](service.md).
 
@@ -88,7 +88,7 @@ Called when execution of the underlying node begins execution.
 
 ### ReceiveTick
 
-Tick function, called each tick for as long as the underlying task or subnetwork is executing.
+The tick function. By default it is called each tick for as long as the underlying task or subnetwork is executing.<br><br>By adjusting the variables **Tick Function Interval** and **Tick Function Interval Random Deviation** it is possible to make this function be called not every tick, but at a random interval between **Tick Function Interval - Tick Function Interval Random Deviation** seconds and **Tick Function Interval + Tick Function Interval Random Deviation** seconds. This interval is recalculated after every call to this function.
 
 ### ReceiveExecutionFinish
 
