@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.12.1
+
+- Added support for Unreal Engine 5.3
+
+!> Note to UE5.0 users: Since the release of Unreal Engine 5.3, the Marketplace no longer distributes updates to users of 5.0 and below. This update still works on 5.0, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_5.x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
+
 ## 1.12.0
 
 - [Decorators](decorator.md) now have a configurable condition check interval and tick function interval. This can be used to improve performance by checking the condition of a decorator (and calling its tick function) at a randomized interval (e.g., every 0.2-0.3s) instead of every frame.
