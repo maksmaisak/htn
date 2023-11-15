@@ -40,6 +40,7 @@ Property|Description
 **Observe Blackboard Value**|If the goal in Blackboard changes during execution, the move will be redirected to the new location.
 **Observed Blackboard Value Tolerance**|If the task is expected to react to changes to location represented by the **Blackboard Key**, this property can be used to tweak sensitivity of the mechanism. The value is recommended to be less than **Acceptable Radius**.
 **Filter Class**|Which navigation data should be used? If set to None the default navigation data will be used.
+**Always Repath When Blackboard Value Set**|If enabled, whenever the destination BB key is set, a new path will be calculated even if the location did not change. This is useful for peridocially recalculating the path (e.g., to weave around obstacles) by having a [Service](service.md) assign the destination periodically.
 **Allow Strafe**|Whether to enable the AI's ability to strafe while moving towards the destination.
 **Reach Test Includes Agent Radius**|If enabled, the radius of the AI's capsule will be added to the threshold between the AI and goal location.
 **Reach Test Includes Goal Radius**|If enabled, the radius of the goal's capsule will be added to the threshold between the AI and goal location.

@@ -1,5 +1,13 @@
 This page contains release notes for updates of the plugin.
 
+## 1.12.2
+
+- The [MoveTo task](node-reference?id=move-to) now has a `Always Repath When Blackboard Value Set` option. If enabled, whenever the destination BB key is set, a new path will be calculated even if the location did not change. This is useful for peridocially recalculating the path (e.g., to weave around obstacles) by having a [Service](service.md) assign the destination periodically.
+- Fixed the [MoveTo task](node-reference?id=move-to) specifying a different object as the Querier when pathfinding during planning and execution. Now the controlled Pawn is the Querier in both cases (used to be the task object itself during planning).
+- Fixed an editor issue with a button icon not loading.
+- Fixed log messages "recorded planspace traversal" spamming the output log.
+- Fixed a missing forward-declaration of FHTNPlan in HTNNode.h
+
 ## 1.12.1
 
 - Added support for Unreal Engine 5.3
