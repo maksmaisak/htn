@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.12.3
+
+- Fixed the [Set Value task](node-reference?id=set-value) and [Guard Value decorator](node-reference?id=guard-value) not allowing to edit the value on Unreal Engine versions 5.1 and below. 
+
 ## 1.12.2
 
 - The [MoveTo task](node-reference?id=move-to) now has a `Always Repath When Blackboard Value Set` option. If enabled, whenever the destination BB key is set, a new path will be calculated even if the location did not change. This is useful for peridocially recalculating the path (e.g., to weave around obstacles) by having a [Service](service.md) assign the destination periodically.
