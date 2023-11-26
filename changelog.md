@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.12.4
+
+- Fixed the editor freezing forever under some circumstances involving tasks that override [`Describe Plan Step To Visual Log`](task?id=receivedescribeplansteptovisuallog)
+
 ## 1.12.3
 
 - Fixed the [Set Value task](node-reference?id=set-value) and [Guard Value decorator](node-reference?id=guard-value) not allowing to edit the value on Unreal Engine versions 5.1 and below. 
