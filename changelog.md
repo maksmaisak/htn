@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.13.0
+
+- It is now possible to automatically switch to a higher-priority branch of a Prefer node (and a lot more) with the new ["Plan Adjustment" mechanism when replanning](replanning?id=plan-adjustment).
+- Added a [Replan service](node-reference?id=replan-1) that unconditionally triggers a [Replan](replanning.md) (by default it's the "Try To Adjust Current Plan" kind of replan).
+- The [Wait](node-reference?id=wait) now has an option to wait forever.
+
 ## 1.12.4
 
 - Fixed the editor freezing forever under some circumstances involving tasks that override [`Describe Plan Step To Visual Log`](task?id=receivedescribeplansteptovisuallog)

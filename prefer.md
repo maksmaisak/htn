@@ -12,3 +12,14 @@ This node can also be used to make some parts of an HTN optional, so that the pl
 ![A Prefer node being used to make a task in a sequence of tasks optional](_media/prefer_optional_complex.png ':size=800')
 
 This node creates an [execution scope](decorator?id=execution-scope) for subnodes.
+
+## Plan Adjustment
+
+The Prefer node can be configured to participate in [Plan Adjustment](replanning?id=plan-adjustment) via its **"Plan Adjustment Mode"** setting with the following options:
+
+Plan Adjustment Mode|Description
+---|---
+**No Adjustment Allowed**|When trying to adjust the current plan, the plan is not allowed to diverge from the current plan at this node.<br>The planner will only try to plan through the same branch as in the current plan.
+**Try Switch To Higher Priority Branch**|When trying to adjust the current plan, the plan will try to diverge from the current plan by switching from the bottom branch to the top branch if possible.<br>Plan adjustment only succeeds if a divergence like this happens at least at one node.
+**Try Switch To Lower Priority Branch**|When trying to adjust the current plan, the plan will try to diverge from the current plan by switching from the top branch to the bottom branch if possible.<br>Plan adjustment only succeeds if a divergence like this happens at least at one node.
+**Try Switch To Other Branch**|When trying to adjust the current plan, the plan will try to diverge from the current plan by switching from the current branch to another branch if possible.<br>Plan adjustment only succeeds if a divergence like this happens at least at one node.

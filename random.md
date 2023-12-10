@@ -14,6 +14,10 @@ Branches with a higher weight have a higher chance of being picked: on the image
 
 By default, if the Random node picked a branch and that branch failed to plan, it will randomly pick one of the remaining branches. This will repeat until a valid plan is made. If all branches fail, the branch containing the Random node fails. In this sense the Random node is like the [Prefer node](prefer.md), but the order of branches is randomly determined during every planning.
 
+### Plan Adjustment
+
+During [Plan Adjustment](replanning?id=plan-adjustment) the Random node always picks the same branch it picked in the current plan.
+
 ### Properties
 
 #### Random

@@ -25,6 +25,7 @@ A task that waits for a configurable amount of time.
 
 Property|Description
 ---|---
+**Wait Forever**|If true, the wait task will not complete until aborted.
 **Wait Time**|How long to wait, in seconds.
 **Random Deviation**|Allows adding a random time (plus or minus) to the **Wait Time** property.
 
@@ -259,9 +260,15 @@ Property|Description
 
 ## Services
 
+### Replan
+
+Triggers a [**Replan**](service?id=replan) with the parameters in the "Replan" category of the node's settings. 
+
+By default is configured to trigger a ["Try To Adjust Current Plan"](replanning?id=plan-adjustment) kind of replan which is suitable for (e.g.,) trying to switch to the top branch of a [Prefer](prefer.md) node as soon as possible while executing the bottom branch.
+
 ### Replan If Location Changes
 
-If the location of the specified blackboard key changes too much from what it was [**on execution start**](service?id=receiveexecutionstart), calls [**Replan**](service?id=replan) with the parameters in the Replan category of the node's settings.
+If the location of the specified blackboard key changes too much from what it was [**on execution start**](service?id=receiveexecutionstart), calls [**Replan**](service?id=replan) with the parameters in the "Replan" category of the node's settings.
 
 Property|Description
 ---|---

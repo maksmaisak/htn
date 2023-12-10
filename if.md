@@ -12,3 +12,14 @@ The condition becomes false, and the whole plan gets aborted, so the character c
 In this example that makes the character keep running for cover even when out of grenade range.<br><br>Likewise for the true branch with the `Can Conditions Interrupt True Branch` property.
 
 This node creates an [execution scope](decorator?id=execution-scope) for subnodes.
+
+## Plan Adjustment
+
+The If node can be configured to participate in [Plan Adjustment](replanning?id=plan-adjustment) via its **"Plan Adjustment Mode"** setting with the following options:
+
+Plan Adjustment Mode|Description
+---|---
+**No Adjustment Allowed**|When trying to adjust the current plan, the plan is not allowed to diverge from the current plan at this node.<br>If the conditions of the decorators of the If node were true in the current plan but are false now (or vice versa), planning just fails here.
+**Try Switch To True Branch**|When trying to adjust the current plan, it counts as a divergence if the current plan took the false branch but the new plan takes the true branch.
+**Try Switch To False Branch**|When trying to adjust the current plan, it counts as a divergence if the current plan took the true branch but the new plan takes the false branch.
+**Try Switch To Other Branch**|When trying to adjust the current plan, it counts as a divergence if the new plan takes a different branch compared to the current plan.
