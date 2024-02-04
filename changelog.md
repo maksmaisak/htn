@@ -1,5 +1,19 @@
 This page contains release notes for updates of the plugin.
 
+## 1.13.3
+
+- Fixed currently executing nodes not being highlighted in the HTN editor when they're inside a [SubPlan](subplan.md) inside a [SubNetwork](subnetwork).
+- Significantly reused the load on Garbage Collection caused by planning: instances of `AITask_MakeHTNPlan` are now pooled by the HTN Component instead of being created from scratch every time a new plan or subplan needs to be made. 
+    - Note for C++ nodes that perform planning over multiple frames (e.g., the EQS Query task): each individual planning process now has a unique ID that can be accessed via the `AITask_MakeHTNPlan::GetPlanningID()` function. Nodes that do planning over multiple frames should keep track of the planning ID to prevent submitting plan steps to a planning task that's been cancelled and/or already began a new planning.  
+
+## 1.13.2
+
+- Fixed an `ensure` being triggered when updating a [decorator](decorator) or [service](service) makes the current [task](task) succeed (e.g., a service changing the destination of an ongoing [MoveTo task](node-reference?id=move-to), causing it to instantly succeed and potentially make the service no longer active).
+
+## 1.13.1
+
+- Fixed [Plan Adjustment](replanning?id=plan-adjustment) not working correctly on an If node after a Prefer node. 
+
 ## 1.13.0
 
 - It is now possible to automatically switch to a higher-priority branch of a Prefer node (and a lot more) with the new ["Plan Adjustment" mechanism when replanning](replanning?id=plan-adjustment).

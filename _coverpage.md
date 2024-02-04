@@ -1,4 +1,4 @@
-<a href="#/changelog"><h1>Hierarchical Task Networks<small>1.13.0</small></h1></a>
+<a href="#/changelog"><h1>Hierarchical Task Networks<small>1.13.3</small></h1></a>
 
 > A plugin for planning AI in Unreal Engine
 
