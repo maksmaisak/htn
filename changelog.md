@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.14.0
+
+- Introduced [Node Instance Pooling](node-instance-pooling.md) — an optional optimization feature that practically eliminates the load on Garbage Collection (GC) from Blueprint nodes.
+- Fixed a crash when plan execution finishes while ticking subnodes. This could happen when a decorator or service on a MoveTo task changes the destination in a way that makes the MoveTo task instantly finish and finish the plan.
+- Fixed planning breaking when a controller switches to another pawn.
+
 ## 1.13.3
 
 - Fixed currently executing nodes not being highlighted in the HTN editor when they're inside a [SubPlan](subplan.md) inside a [SubNetwork](subnetwork).
