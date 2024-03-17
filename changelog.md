@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.15.0
+
+- Added the [Search tab](search.md), allowing to search through the nodes of an HTN graph.
+
 ## 1.14.0
 
 - Introduced [Node Instance Pooling](node-instance-pooling.md) — an optional optimization feature that practically eliminates the load on Garbage Collection (GC) from Blueprint nodes.

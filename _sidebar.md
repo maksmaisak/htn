@@ -19,6 +19,7 @@
     - [HTN Extensions](htn-extensions.md)
     - [Replanning](replanning.md)
     - [Diff](diff.md)
+    - [Search](search.md)
     - [Node Instance Pooling](node-instance-pooling.md)
     - Nodes
         - [Task](task.md)
