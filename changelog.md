@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.15.1
+
+- Double-clicking a C++ node in the HTN editor will now open the node's source code by default.
+
 ## 1.15.0
 
 - Added the [Search tab](search.md), allowing to search through the nodes of an HTN graph.
