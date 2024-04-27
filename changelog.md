@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.15.2
+
+- Added support for Unreal Engine 5.4
+
+!> Note to UE5.1 users: Since the release of Unreal Engine 5.4, the Marketplace no longer distributes updates to users of 5.1 and below. This update still works on 5.1, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_5.x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
+
 ## 1.15.1
 
 - Double-clicking a C++ node in the HTN editor will now open the node's source code by default.
