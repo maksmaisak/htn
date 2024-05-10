@@ -3,8 +3,8 @@ This page contains release notes for updates of the plugin.
 ## 1.15.3
 
 - The [MoveTo task](node-reference?id=move-to) task now has a `Require Navigable End Location` setting that, when disabled, allows for movement even when the destination is off the navmesh. Combined with "allow partial path", it is useful for moving to objects that block the navmesh under them. In this case the pawn will move to a point on the navmesh close to the destination.
-- The Move To task now supports moving to a component (only vector and actors were supported before)
-- The `Get Location From World State` function now supports component keys
+- The Move To task now supports moving to a component (only vector and actors were supported before).
+- The `Get Location From World State` function now supports component keys.
 - Fixed Move To tasks using different NavAgentProperties for the plan-time vs execution-time pathfinding in some cases.
 - EQS tasks now properly filter the result keys in the dropdown (only vector and object keys are allowed). 
 
