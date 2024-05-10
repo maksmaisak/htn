@@ -47,6 +47,7 @@ Property|Description
 **Reach Test Includes Goal Radius**|If enabled, the radius of the goal's capsule will be added to the threshold between the AI and goal location.
 **Allow Partial Path**|If enabled, allow the AI to use an incomplete path when the goal cannot be reached.
 **Track Moving Goal**|If enabled, the path to the goal Actor will update itself when the Actor moves.
+**Require Navigable End Location**| If set, the goal location will need to be navigable (will need to be on the navmesh). Set this to false and "Allow Partial Path" to true if the destination is the center of a building that blocks the navmesh. In that case the pawn will move to a point as close as possible to the destination.<br><br>Note: this feature is only available in UE5.2 and up.
 **Project Goal Location**|If enabled, the goal location will be projected on the Nav Mesh before using.
 **Test Path During Planning**|If set, the planning cost of the task will be determined by the estimated pathfinding length (or cost), computed during planning. If not set, the distance between the start location and the goal location, projected to navmesh, will be used instead.
 **Use Path Cost Instead Of Length**|Only relevant if **Test Path During Planning** is set. If set, estimated path cost will be used instead of path length when computing the planning cost of the MoveTo task.
