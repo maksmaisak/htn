@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.15.4
+
+- Fixed crash when the aborting of one task causes the completion of another. This could happen in cases where multiple tasks using gameplay task (like [Move To](node-reference?id=move-to)) were running in [Parallel](parallel.md).
+
 ## 1.15.3
 
 - The [MoveTo task](node-reference?id=move-to) task now has a `Require Navigable End Location` setting that, when disabled, allows for movement even when the destination is off the navmesh. Combined with "allow partial path", it is useful for moving to objects that block the navmesh under them. In this case the pawn will move to a point on the navmesh close to the destination.
