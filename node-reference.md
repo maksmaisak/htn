@@ -152,14 +152,15 @@ Property|Description
 
 ### Cooldown
 
-A decorator node that bases its condition on whether a cooldown timer has expired. The cooldown begins [**on execution finish**](decorator?id=receiveexecutionfinish).
+A decorator node that bases its condition on whether a cooldown timer has expired. The cooldown begins [**on execution finish**](decorator?id=receiveexecutionfinish), unless **Lock Cooldown** is disabled.
 
 Property|Description
 ---|---
+**Lock Cooldown**|If true (default), the cooldown will lock when execution of this decorator finishes.
+**Lock Even If Execution Aborted**|If true (default) and **Lock Cooldown** is true, the cooldown will lock even if execution was aborted.
 **Cooldown duration**|The duration in seconds for which the decorator's condition will be false after finishing.
 **Random deviation**|If not zero, the cooldown duration will be in range `[CooldownDuration - RandomDeviation, CooldownDuration + RandomDeviation]`
 **Gameplay Tag**|If not None, it will be possible to influence all decorators with this gameplay tag through the [**HTNTask_ResetCooldown**](node-reference?id=reset-cooldown) task or [**HTNExtension_Cooldown**](node-reference?id=cooldown-1) extension.
-**Lock Even If Execution Aborted**|If true (default), the cooldown will lock even if execution was aborted.
 
 ### Distance check
 

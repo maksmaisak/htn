@@ -1,5 +1,10 @@
 This page contains release notes for updates of the plugin.
 
+## 1.16.0
+
+- The [Cooldown decorator](node-reference?id=cooldown) now has a "lock Cooldown" option. When off, the decorator only checks if a cooldown with the given tag is set and doesn't lock it when executiion finishes.
+- It is now possible to directly drag-and-drop HTN assets, EQS assets, HTN task classes into the HTN graph to create appropriate nodes. 
+
 ## 1.15.4
 
 - Fixed crash when the aborting of one task causes the completion of another. This could happen in cases where multiple tasks using gameplay task (like [Move To](node-reference?id=move-to)) were running in [Parallel](parallel.md).
