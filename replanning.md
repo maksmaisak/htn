@@ -39,7 +39,12 @@ The most common use case for this is "change to a higher-priority behavior when 
 
 ### Nodes' participation in plan adjustment
 
-Custom nodes can participate in plan adjustment in various ways: see the "Plan Adjustment Mode" setting in [Prefer](prefer.md) and [If](if.md) nodes. 
+Custom nodes can participate in plan adjustment in various ways: see the "Plan Adjustment Mode" setting in the following nodes:
+
+- [Prefer](prefer.md?id=plan-adjustment)
+- [If](if.md?id=plan-adjustment)
+- [Optional](optional.md?id=plan-adjustment)
+- [SubNetwork Dynamic](subnetwork-dynamic.md?id=plan-adjustment)
 
 Plan adjustment requires active participation from the nodes in the current plan. Plan adjustment is only possible if at least one node in the current plan set `bIsPotentialDivergencePointDuringPlanAdjustment` to true during planning. A plan is only considered a valid adjustment of the current plan if at least one node set `bDivergesFromCurrentPlanDuringPlanAdjustment` during planning. This allows the planner to prune branches not relevant to plan adjustment, which makes plan adjustment faster than regular planning.
 

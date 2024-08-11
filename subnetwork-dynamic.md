@@ -9,3 +9,11 @@ The HTN can be accessed on a per-character basis using the `SetDynamicHTN`/`GetD
 
 This node creates an [execution scope](decorator?id=execution-scope) for subnodes.
 
+## Plan Adjustment
+
+The SubNetwork Dynamic node can be configured to participate in [Plan Adjustment](replanning?id=plan-adjustment) via its **"Plan Adjustment Mode"** setting with the following options:
+
+Plan Adjustment Mode|Description
+---|---
+**No Adjustment Allowed**|When trying to adjust the current plan, the plan is not allowed to diverge from the current plan at this node. The planner will only try to plan through the same branch as in the current plan.<br>Even if the dynamic subnetwork was changed, the planner will go with the same subnetwork as in the current plan.
+**Try Switch To Another SubNetwork**|When trying to adjust the current plan, the plan will try to diverge from the current plan by using a new sunetwork that was possibly assigned to this node dynamically. If that is the case, the planner will try to plan through the new subnetwork and mark such a plan as diverging from the current plan.<br>Plan adjustment only succeeds if a divergence like this happens at least at one node.

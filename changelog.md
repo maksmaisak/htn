@@ -1,5 +1,13 @@
 This page contains release notes for updates of the plugin.
 
+## 1.17.0
+
+- The [Optional](optional.md?id=plan-adjustment) and [SubNetwork Dynamic](subnetwork-dynamic.md?id=plan-adjustment) nodes now properly support [Plan Adjustment](replanning?id=plan-adjustment) and offer settings for it just like [Prefer](prefer.md?id=plan-adjustment) and [If](if.md?id=plan-adjustment) nodes.
+- [SubNetwork](subnetwork.md) and [SubNetwork Dynamic](subnetwork-dynamic.md) nodes now log warnings in the Output Log and the [Visual Logger](vislog.md) if their subnet has an incompatible Blackboard asset.
+- Improved [logging of planning](vislog?id=logging-the-planning-process): the "planspace traversal" log now shows nodes that were rejected due to recursion limit or because they were not in the plan being adjusted during [Plan Adjustment](replanning?id=plan-adjustment).
+- During [Plan Adjustment](replanning?id=plan-adjustment), there are now warning logs for common issues caused by a custom node diverging from the current plan but not marking the resulting plan step as a divergence.
+- The [Replan](replan.md) [task](node-reference?id=replan) and [service](node-reference?id=replan-1) now show what type of replan (normal or plan adjustment) they are in the description.
+
 ## 1.16.0
 
 - The [Cooldown decorator](node-reference?id=cooldown) now has a "lock Cooldown" option. When off, the decorator only checks if a cooldown with the given tag is set and doesn't lock it when executiion finishes.
