@@ -1,5 +1,13 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.0
+
+- [Diffing](diff.md) now has the option to stack the graphs on top each other (default)
+- When clicking "select in Content Browser" in the HTN editor, only the currently edited object (HTN or BB) is selected now instead of both
+- (On engine versions 5.4+) When reopening Unreal engine after closing it, HTN editors now open on the HTN instead of on the BB
+- When planning and waiting for a node to produce plan steps (e.g., an [EQS task](eqs.md)), the name of the node the planner is waiting for is now listed in the [visual logger's](vislog.md) status tab under each plan instance.
+- [Decorators](decorator.md) now respect the engine's built-in setting "Blackboard Key Decorator Allows None As Value" on decorators that inhertit from UHTNDecorator_BlackboardBase (similarly to how with Behavior Trees this works with decorators that inherit from BTDecorator_BlackboardBase)
+
 ## 1.17.0
 
 - The [Optional](optional.md?id=plan-adjustment) and [SubNetwork Dynamic](subnetwork-dynamic.md?id=plan-adjustment) nodes now properly support [Plan Adjustment](replanning?id=plan-adjustment) and offer settings for it just like [Prefer](prefer.md?id=plan-adjustment) and [If](if.md?id=plan-adjustment) nodes.
