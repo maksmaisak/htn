@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.1
+
+- Fixed bug with the "Try Switch To True Branch" and "Try Switch To False Branch" options for [plan adjustment](replanning?id=plan-adjustment) of the [If node](if.md), where it would fail to plan through the branch that was taken in the existing plan even if there are more potential divergence points down that path.
+- Exposed UAITask_HTNMoveTo to external code
+- The [EQS task](eqs.md) now gives a more detailed error log when an EQS item type is not supported or doesn't match the type of the result key.
+
 ## 1.18.0
 
 - [Diffing](diff.md) now has the option to stack the graphs on top each other (default).
