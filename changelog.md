@@ -1,5 +1,12 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.2
+
+- The `HTNComponent` now has a `DefaultHTNAsset` property that gets run during `StartLogic`, similarly to the Behavior Tree Component. This means that it's now possible to make use of the `bStartAILogicOnPossess` option of the `AIController` to automatically start an HTN when a character is possessed. 
+- Fixed misleading description of the [Cooldown decorator](node-reference?id=cooldown)
+- All HTN nodes now have `GetOwnerController` and `GetControlledPawn` functions alongside `GetOwnerComponent`
+- The "debugged actor" dropdown in the HTN editor during execution now uses the human-readable labels of the pawns instead of their names, which in One File Per Actor maps is a non-human-readable ID. 
+
 ## 1.18.1
 
 - Fixed a bug with the "Try Switch To True Branch" and "Try Switch To False Branch" options for [plan adjustment](replanning?id=plan-adjustment) of the [If node](if.md), where it would fail to plan through the branch that was taken in the existing plan even if there are more potential divergence points down that path.
