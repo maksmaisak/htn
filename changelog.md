@@ -3,7 +3,7 @@ This page contains release notes for updates of the plugin.
 ## 1.18.2
 
 - The `HTNComponent` now has a `DefaultHTNAsset` property that gets run during `StartLogic`, similarly to the Behavior Tree Component. This means that it's now possible to make use of the `bStartAILogicOnPossess` option of the `AIController` to automatically start an HTN when a character is possessed. 
-- Fixed misleading description of the [Cooldown decorator](node-reference?id=cooldown)
+- Fixed misleading description of the [Cooldown decorator](node-reference?id=cooldown) when the "lock Cooldown" option is off.
 - All HTN nodes now have `GetOwnerController` and `GetControlledPawn` functions alongside `GetOwnerComponent`
 - The "debugged actor" dropdown in the HTN editor during execution now uses the human-readable labels of the pawns instead of their names, which in One File Per Actor maps is a non-human-readable ID. 
 
