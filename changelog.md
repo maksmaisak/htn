@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.3
+
+- Fixed a case where a [Parallel](parallel.md) would get stuck: A Parallel with a bottom branch that runs forever and a top branch that ends on an empty (or failing) [Optional](optional.md) or [Prefer](prefer.md) node.
+
 ## 1.18.2
 
 - The `HTNComponent` now has a `DefaultHTNAsset` property that gets run during `StartLogic`, similarly to the Behavior Tree Component. This means that it's now possible to make use of the `bStartAILogicOnPossess` option of the `AIController` to automatically start an HTN when a character is possessed. 
