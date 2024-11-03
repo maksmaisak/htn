@@ -2,7 +2,7 @@ This page contains release notes for updates of the plugin.
 
 ## 1.18.3
 
-- Fixed a case where a [Parallel](parallel.md) would get stuck: A Parallel with a bottom branch that runs forever and a top branch that ends on an empty (or failing) [Optional](optional.md) or [Prefer](prefer.md) node.
+- Fixed a case where a [Parallel](parallel.md) node would get stuck: A Parallel with a bottom branch that runs forever and a top branch that ends on an empty (or failing) [Optional](optional.md) or [Prefer](prefer.md) node.
 
 ## 1.18.2
 
