@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.4
+
+- Replaced raw UObject pointers in UPROPERTY fields with TObjectPtr<>. This breaks compatibility with pre-5.0 engine versions but allows the use of [incremental garbage collection](https://dev.epicgames.com/documentation/en-us/unreal-engine/incremental-garbage-collection-in-unreal-engine).
+
 ## 1.18.3
 
 - Fixed a case where a [Parallel](parallel.md) node would get stuck: A Parallel with a bottom branch that runs forever and a top branch that ends on an empty (or failing) [Optional](optional.md) or [Prefer](prefer.md) node.
