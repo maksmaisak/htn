@@ -2,7 +2,7 @@ This page contains release notes for updates of the plugin.
 
 ## 1.18.4
 
-- Replaced raw UObject pointers in UPROPERTY fields with TObjectPtr<>. This breaks compatibility with pre-5.0 engine versions but allows the use of [incremental garbage collection](https://dev.epicgames.com/documentation/en-us/unreal-engine/incremental-garbage-collection-in-unreal-engine).
+- Replaced raw `UObject` pointers in `UPROPERTY` fields with `TObjectPtr<>`. This breaks compatibility with pre-5.0 engine versions but allows the use of [incremental garbage collection](https://dev.epicgames.com/documentation/en-us/unreal-engine/incremental-garbage-collection-in-unreal-engine).
 
 ## 1.18.3
 
