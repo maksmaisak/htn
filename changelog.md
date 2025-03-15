@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.5
+
+- The plugin's modules now load during PreDefault instead of Default. This prevents rare Blueprint compilation errors on 5.5.
+- The "place node" context menu in the HTN editor no longer loads all the nodes when it opens, removing a performance hitch.
+- Fixed incorrect tooltip when drag-and-dropping an HTN task Blueprint into the HTN editor.
+
 ## 1.18.4
 
 - Replaced raw `UObject` pointers in `UPROPERTY` fields with `TObjectPtr<>`. This breaks compatibility with pre-5.0 engine versions but allows the use of [incremental garbage collection](https://dev.epicgames.com/documentation/en-us/unreal-engine/incremental-garbage-collection-in-unreal-engine).
