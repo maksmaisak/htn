@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.6
+
+- Added support for Unreal Engine 5.6
+
+!> Note to UE5.3 users: Since the release of Unreal Engine 5.4, the Marketplace no longer distributes updates to users of 5.3 and below. This update still works on 5.3, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_5.x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
+
 ## 1.18.5
 
 - The plugin's modules now load during PreDefault instead of Default. This prevents rare Blueprint compilation errors on 5.5.
