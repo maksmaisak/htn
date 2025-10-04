@@ -1,5 +1,16 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.8
+
+- [Diff](diff.md) now has a "Show Node Moves" option that allows to enable/disable showing changes that are merely repositioning nodes in the graph.
+- Undo/Redo in the HTN editor no longer loses selection of the current node.
+- HTN nodes no longer change size or move when zooming out.
+
+## 1.18.7
+
+- Migrated from the old FAssetTypeActions to the new UAssetDefinition for HTN assets.
+    - This fixes the double "Artificial Intelligence" categories showing up in the editor on older engine versions and the one with the HTN asset not showing up at all on 5.6.
+
 ## 1.18.6
 
 - Added support for Unreal Engine 5.6
