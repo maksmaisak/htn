@@ -9,7 +9,7 @@ This page contains release notes for updates of the plugin.
 ## 1.18.7
 
 - Migrated from the old FAssetTypeActions to the new UAssetDefinition for HTN assets.
-    - This fixes the double "Artificial Intelligence" categories showing up in the editor on older engine versions and the one with the HTN asset not showing up at all on 5.6.
+    - This fixes duplicate "Artificial Intelligence" categories showing up in the Content Browser's right-click menu on older engine versions and none at all not showing up on 5.6.
 
 ## 1.18.6
 
