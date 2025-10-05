@@ -37,7 +37,7 @@ The scoping rules are the same for [Services](service.md).
 
 ## Functions
 
-### NotifyEventBasedCondition
+### Notify Event Based Condition
 
 ![ForceReplan](_media/notify_event_based_decorator_condition.png ':size=400')
 
@@ -55,6 +55,10 @@ The function returns true if this resulted in a replan.
 ![Replan HTN Component](_media/replan_decorator.png ':size=400')
 
 Forces the HTNComponent to start making a new plan to replace the current one. See the [Replanning](replanning.md) page for more details. 
+
+### Is On If Node False Branch
+
+For decorators placed on an [If node](if.md), during execution (not planning) this returns true if the If node took the False branch.
 
 ## Overridable functions
 

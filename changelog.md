@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.18.9
+
+- [TraceTest decorators](node-reference?id=trace-test) now uses [Location Sources](location-provider.md) for the from/to trace locations instead of plain blackboard keys. 
+    - Existing instances in HTN are automatically fixed up.
+- [Blueprint decorators](decorator.md) that are placed on an [If node](if.md) can now tell if the false branch was taken using the [Is On If Node False Branch](decorator.md?id=is-on-if-node-false-branch) function.
+
 ## 1.18.8
 
 - [Diff](diff.md) now has a "Show Node Moves" option that allows to enable/disable showing changes that are merely repositioning nodes in the graph.
