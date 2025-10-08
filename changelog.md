@@ -1,5 +1,10 @@
 This page contains release notes for updates of the plugin.
 
+## 1.19.0
+
+- It can now be configured when individual [tasks](task.md) [apply the changes they made during planning](task?id=planned-changes-are-applied-during-execution) (e.g. by calling SetWorldStateValueAsVector during CreatePlanSteps) to the blackboard.
+    - This makes it possible for the same task to i.e. both decide on a movement destination during planning and move to it during execution. Previously this always required a separate task for deciding during planning and a task for making use of that decision during execution.
+
 ## 1.18.9
 
 - [TraceTest decorators](node-reference?id=trace-test) now uses [Location Sources](location-provider.md) for the from/to trace locations instead of plain blackboard keys. 

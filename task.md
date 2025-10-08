@@ -15,7 +15,20 @@ When the planner tries adding a task to a plan, the [`ReceiveCreatePlanSteps`](#
 
 If the given worldstate fits the preconditions, the task should apply its effects and call `SubmitPlanStep`. No action is needed if the preconditions don't fit. In this example the precondition is "having a valid Firearm in a specific key of the worldstate", and the effect is "putting that Firearm in another key of the worldstate".
 
-Effects applied to a worldstate during planning are also applied to the blackboard during plan execution, but only when the task successfully **finishes** executing.
+#### Planned changes are applied during execution
+
+By default, changes applied to the worldstate during planning are also applied to the blackboard during plan execution, but only when the task successfully **finishes** executing. 
+
+This can be changed via the **"When To Apply Planned Changes"** property on the task. These are the possible values:
+
+When To Apply Planned Changes|Description
+---|---
+Before Execution|Right before the task begins execution
+After Execution Successful|After the task successfully finishes **(default)**
+After Execution Aborted|After the task is aborted
+After Execution Failed|After the task fails
+
+?> This is a bitmask, so you can select multiple or none of the options.
 
 #### Submitting multiple plan steps
 
