@@ -1,7 +1,7 @@
 - [Introduction](README.md)
 - [Tutorials](tutorials.md)
 - [Changelog](changelog.md)
-- [Buy on the Unreal Marketplace](https://www.unrealengine.com/marketplace/product/29560d88937e4cd1a435f4b634890655)
+- [Buy on Fab](https://www.fab.com/listings/1423ad9b-9c53-43be-b4c8-af1b655377bf)
 - [Official Discord](https://discord.gg/CQjRPnDNtc)
 
 - Overview

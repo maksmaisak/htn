@@ -1,5 +1,11 @@
 This page contains release notes for updates of the plugin.
 
+## 1.19.1
+
+- Added support for Unreal Engine 5.7
+
+!> Note to UE5.4 users: Since the release of Unreal Engine 5.7, Fab no longer distributes updates to users of 5.4 and below. This update still works on 5.4, but to use it you need to install it manually. To do so, install the plugin into a newer version of Unreal Engine, then copy the plugin from “UE_5.x\Engine\Plugins\Marketplace\HTN” into the Plugins folder of your project and recompile using Visual Studio. Alternatively, upgrade your project to a newer version of Unreal Engine.
+
 ## 1.19.0
 
 - It can now be configured when individual [tasks](task.md) [apply the changes they made during planning](task?id=planned-changes-are-applied-during-execution) (e.g. by calling SetWorldStateValueAsVector during CreatePlanSteps) to the blackboard.
