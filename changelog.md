@@ -1,5 +1,9 @@
 This page contains release notes for updates of the plugin.
 
+## 1.19.2
+
+- Added support for Unreal Engine 5.8
+
 ## 1.19.1
 
 - Added support for Unreal Engine 5.7
