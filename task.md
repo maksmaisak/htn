@@ -28,7 +28,7 @@ After Execution Successful|After the task successfully finishes **(default)**
 After Execution Aborted|After the task is aborted
 After Execution Failed|After the task fails
 
-?> This is a bitmask, so you can select multiple or none of the options.
+?> This is a bitmask, so you can select multiple options. To choose **Never**, select none: uncheck the default **After Execution Successful** option.
 
 #### Submitting multiple plan steps
 
