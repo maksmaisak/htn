@@ -8,7 +8,7 @@ This page contains release notes for updates of the plugin.
 ![EQS Context Investigated Locations](_media/eqs-context-investigated-locations.png ':size=1200')
 
 - The new `GetWorldStateValueAsStruct` and `SetWorldStateValueAsStruct` functions have a wildcard pin that you can connect any struct (or Break node). They succeed if the Blackboard key is a Struct key of a matching type.
-- The `WorldStateProxy` used in (e.g.) EQS contexts also supports Struct keys via its `GetValueAsStruct`/`SetValueAsStruct` functions
+- The `WorldStateProxy` used in (e.g.) EQS contexts also supports Struct keys via its `GetValueAsStruct`/`SetValueAsStruct` functions.
 - The [Set Value](node-reference?id=set-value) task and the [Guard Value](node-reference?id=guard-value) decorator also support Struct keys.
 
 ## 1.19.2
