@@ -1,5 +1,16 @@
 This page contains release notes for updates of the plugin.
 
+## 1.20.0
+
+[Worldstates](manipulating-worldstates.md) now fully support `Struct` blackboard keys. This makes it possible to store more complex data like arrays in the worldstate and change it during planning, without the need to make a custom blackboard key type in C++.
+
+![Struct key in blackboard](_media/struct-key-in-blackboard.png ':size=1200')
+![EQS Context Investigated Locations](_media/eqs-context-investigated-locations.png ':size=1200')
+
+- The new `GetWorldStateValueAsStruct` and `SetWorldStateValueAsStruct` functions have a wildcard pin that you can connect any struct (or Break node). They succeed if the Blackboard key is a Struct key of a matching type.
+- The `WorldStateProxy` used in (e.g.) EQS contexts also supports Struct keys via its `GetValueAsStruct`/`SetValueAsStruct` functions
+- The [Set Value](node-reference?id=set-value) task and the [Guard Value](node-reference?id=guard-value) decorator also support Struct keys.
+
 ## 1.19.2
 
 - Added support for Unreal Engine 5.8

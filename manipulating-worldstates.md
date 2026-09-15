@@ -24,6 +24,7 @@ Here's the full list of types supported by the `GetValue`/`SetValue` functions:
 - `Name`
 - `Vector`
 - `Rotator`
+- `Struct`
 
 ### Helper functions
 

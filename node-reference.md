@@ -68,6 +68,7 @@ During planning, sets a specified value to a specified worldstate key. Supports 
 - Rotator
 - Object
 - Class 
+- Struct
 
 Property|Description
 ---|---
